@@ -1,0 +1,24 @@
+---
+title: "Menyiapkan Lingkungan Development WebGIS"
+---
+::: {layout="[[-20, 60,-20]]"}
+
+!["Beautiful illustration of a man using laptop sitting in his bed looking outside the window. Anime manga style, aesthetic, scene from the movie 'Your Name ', Makoto Shinkai" (StableDiffusion)](/images/man-laptop2.jpg)
+
+:::
+
+## Tujuan
+
+Tujuan dari bab ini adalah 'setting the stage' alias menyiapkan panggung yang di atasnya akan kita bangun WebGIS. Setelah menyelesaikan bab ini, Anda akan memiliki satu lingkungan development yang terintegrasi dengan berbagai perangkat untuk keperluan pembangunan sebuah _Fullstack WebGIS_, baik pada sisi Frontend maupun Backend. Anda juga diharapkan mampu untuk menggunakan perangkat Version Control System untuk menyimpan dan mempublikasikan kode yang dibuat pada latihan ini dalam sebuah repository. 
+
+## Ringkasan Materi
+
+Terdapat dua bagian utama dari bab ini, yaitu: 
+
+1) Instalasi perangkat lunak, dan, 
+
+2) Pengaturan _version control system_ melalui Git dan Github. 
+
+Hasil akhir dari latihan bagian pertama ini adalah komputer atau laptop yang Anda gunakan telah terinstall dengan berbagai perangkat yang diperlukan untuk membangun sebuah webGIS, sedangkan hasil akhir dari bagian kedua adalah ini: Anda memiliki sebuah akun Github dan mampu untuk melakukan _Pull_, _Commit_ dan _Push_ pada sebuah repository Github.
+
+

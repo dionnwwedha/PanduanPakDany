@@ -1,0 +1,11 @@
+---
+title: "Kontak Penulis"
+---
+
+## Hubungi Penulis
+
+Modul ini ditulis oleh [Dany Laksono](https://danylaksono.com) pada Tahun 2022. Penulis dapat ditemukan di [LinkedIn](https://www.linkedin.com/in/danylaksono/), [Twitter](https://twitter.com/laksonodany), atau kontak langsung melalui email di [danylaksono@ugm.ac.id](mailto:danylaksono@ugm.ac.id)
+
+## Afiliasi
+
+Kelompok Riset Geoinformatika dan Infrastruktur Informasi Geospasial (GIIG) merupakan bagian dari Departemen Teknik Geodesi, Fakultas Teknik Universitas Gadjah Mada. Riset-riset yang dikembangkan oleh kelompok bidang keilmuan ini diantaranya adalah pada bidang geoinformatika, inovasi metode akuisisi dan pengolahan data pertanahan, pengembangan perangkat lunak opensource berbasis desktop dan web, geovisualisasi dan visual analytics, serta infrastruktur informasi geospasial. Kunjungi website [Departemen Teknik Geodesi](https://geodesi.ugm.ac.id/laboratorium-geoinformatika-dan-infrastruktur-informasi-geospasial/) untuk informasi lebih lanjut. 

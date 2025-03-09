@@ -1,0 +1,89 @@
+project:
+  type: website
+  output-dir: docs
+  preview: 
+      port: 4200
+
+website:
+  title: "Panduan-Webgis"
+  image: "logo.png"
+  favicon: "favicon2.png"
+  # google-analytics: ""
+  open-graph: true
+  twitter-card: true
+  site-url: https://www.danylaksono.com/panduan-webgis/
+  repo-url: https://github.com/danylaksono/panduan-webgis
+  repo-actions: [issue]
+  page-navigation: true
+  reader-mode: true
+  search:
+    location: sidebar
+    type: textbox
+  sidebar:
+    title: "Panduan WebGIS"
+    # background: "#F5F6FA"
+    style: floating
+    subtitle: "Panduan Praktis WebGIS dengan NextJS dan MaplibreJS"
+    search: true
+    collapse-level: 2
+    # header: "**Panduan Praktis WebGIS**"
+    footer: "_danylaksono@2022_"
+    # logo: "images/cat.png"
+    contents:
+      - text: "Tentang modul ini"
+        href: index.qmd
+      - section: "Persiapan"
+        href: "1_persiapan/index.qmd"
+        contents:
+          - text: "Instalasi Perangkat"
+            href: "1_persiapan/instalasi-perangkat.qmd" 
+          - text: "Git dan Github"
+            href: "1_persiapan/git-dan-github.qmd"
+      - section: "NextJS dan Tailwind"
+        href: "1_persiapan/index.qmd"
+        contents:
+          - text: "Persiapan Awal"
+            href: "1_persiapan/index.qmd"
+          - text: "Persiapan kedua"
+            href: "1_persiapan/index.qmd"
+      - section: "MaplibreJS"
+        href: "1_persiapan/index.qmd"
+        contents:
+          - text: "Persiapan Awal"
+            href: "1_persiapan/index.qmd"
+          - text: "Persiapan kedua"
+            href: "1_persiapan/index.qmd"
+      - text: "Penutup"
+        href: about.qmd
+
+  navbar:
+    # background: light
+    background: "#F5F6FA"
+    logo: favicon2.png
+    logo-alt: "Panduan-Webgis"
+    # title: false
+    collapse-below: lg
+    left:
+      - text: "Home"
+        href: index.qmd
+      - text: "Kontak"
+        href: about.qmd
+    right:
+      - icon: twitter
+        href: https://twitter.com/laksonodany
+        aria-label: Twitter
+      - icon: github
+        href: https://github.com/danylaksono/panduan-webgis
+        aria-label: GitHub    
+      
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+    code-copy: true
+    code-overflow: wrap
+
+
+

@@ -1,0 +1,1344 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.361">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Panduan-Webgis - Git dan Github</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../about.html" rel="next">
+<link href="../1_persiapan/instalasi-perangkat.html" rel="prev">
+<link href="../favicon2.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../styles.css">
+<meta property="og:title" content="Panduan-Webgis - Git dan Github">
+<meta property="og:description" content="">
+<meta property="og:image" content="https://www.danylaksono.com/panduan-webgis/images/octopus.jpg">
+<meta property="og:site-name" content="Panduan-Webgis">
+<meta name="twitter:title" content="Panduan-Webgis - Git dan Github">
+<meta name="twitter:description" content="">
+<meta name="twitter:image" content="https://www.danylaksono.com/panduan-webgis/images/octopus.jpg">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="nav-sidebar floating nav-fixed slimcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../favicon2.png" alt="Panduan-Webgis" class="navbar-logo">
+    </a>
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Panduan-Webgis</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="../index.html" rel="" target="" aria-current="page">
+ <span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../about.html" rel="" target="">
+ <span class="menu-text">Kontak</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/laksonodany" rel="" target=""><i class="bi bi-twitter" role="img" aria-label="Twitter">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/danylaksono/panduan-webgis" rel="" target=""><i class="bi bi-github" role="img" aria-label="GitHub">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../1_persiapan/index.html">Persiapan</a></li><li class="breadcrumb-item"><a href="../1_persiapan/git-dan-github.html">Git dan Github</a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Tentang modul ini</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../1_persiapan/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Persiapan</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../1_persiapan/instalasi-perangkat.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Instalasi Perangkat</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../1_persiapan/git-dan-github.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Git dan Github</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../1_persiapan/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">NextJS dan Tailwind</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../1_persiapan/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Persiapan kedua</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../1_persiapan/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Persiapan kedua</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../1_persiapan/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">MaplibreJS</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../1_persiapan/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Persiapan kedua</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../1_persiapan/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Persiapan kedua</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../about.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Penutup</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+<div class="quarto-sidebar-footer"><div class="sidebar-footer-item">
+<p><em>danylaksono@2022</em></p>
+</div></div></nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#tentang-git" id="toc-tentang-git" class="nav-link active" data-scroll-target="#tentang-git">Tentang Git</a></li>
+  <li><a href="#prinsip-dan-cara-kerja-github" id="toc-prinsip-dan-cara-kerja-github" class="nav-link" data-scroll-target="#prinsip-dan-cara-kerja-github">Prinsip dan Cara Kerja Github</a></li>
+  <li><a href="#menggunakan-github-untuk-version-control-system" id="toc-menggunakan-github-untuk-version-control-system" class="nav-link" data-scroll-target="#menggunakan-github-untuk-version-control-system">Menggunakan Github untuk Version Control System</a>
+  <ul class="collapse">
+  <li><a href="#bekerja-dengan-repository-github-skenario-1" id="toc-bekerja-dengan-repository-github-skenario-1" class="nav-link" data-scroll-target="#bekerja-dengan-repository-github-skenario-1">Bekerja dengan Repository Github (Skenario 1)</a></li>
+  <li><a href="#berkontribusi-pada-repository-lain-skenario-2" id="toc-berkontribusi-pada-repository-lain-skenario-2" class="nav-link" data-scroll-target="#berkontribusi-pada-repository-lain-skenario-2">Berkontribusi pada Repository Lain (Skenario 2)</a></li>
+  </ul></li>
+  <li><a href="#publikasi-halaman-web-pada-github" id="toc-publikasi-halaman-web-pada-github" class="nav-link" data-scroll-target="#publikasi-halaman-web-pada-github">Publikasi Halaman Web pada Github</a></li>
+  <li><a href="#kesimpulan" id="toc-kesimpulan" class="nav-link" data-scroll-target="#kesimpulan">Kesimpulan</a></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/danylaksono/panduan-webgis/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+    </div>
+<!-- main -->
+<main class="content page-columns page-full" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Git dan Github</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="tentang-git" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="tentang-git">Tentang Git</h2>
+<div class="page-columns page-full"><p>Git merupakan sistem <em>Source Code Management (SCM)</em> dan <em>Version Control</em> <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> yang bersifat bebas dan terbuka (free and open source). Git didesain untuk memudahkan manajemen kode dalam skala kecil hingga skala besar, sambil tetap menjaga kecepatan proses yang dibutuhkan. Pada git, berkas kode aplikasi disimpan dalam sebuah ‘<em>repository</em>’. Setiap <em>repository</em> pada sistem Git merupakan penyimpanan kode mandiri yang memiliki kemampuan pelacakan dan history (lihat penjelasan tentang <em>version control</em> di samping). Git juga memungkinkan pelacakan dari banyak kontributor sekaligus.</p><div class="no-row-height column-margin column-container"><li id="fn1"><p><sup>1</sup>&nbsp;<em>Version Control</em> adalah aplikasi yang digunakan untuk merekam dan melacak tiap perubahan yang terjadi pada sebuah berkas dan siapa yang melakukan perubahan tersebut. Apabila Anda menggunakan Google Docs untuk mengedit sebuah berkas dokumen, maka ini adalah bentuk sederhana dari sebuah Version Control</p></li></div></div>
+<div class="quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-panel quarto-layout-cell" style="flex-basis: 70.0%;justify-content: center;">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
+<p><a href="https://github.com/">Github</a> merupakan layanan repository Git dengan berbagai fungsionalitasnya ditambah dengan fungsi-fungsi lain yang memperkaya manajemen kode pada Github. Karena kelengkapan fungsi dan sifatnya yang gratis inilah maka Github seringkali dipercaya untuk menyimpan kode dari berbagai perangkat lunak Open Source, dimana Github memungkinkan semua orang untuk turut berkontribusi pada suatu project.</p>
+</div>
+</div>
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
+<p>Dengan demikian, dapat dikatakan bahwa Github adalah salah satu perangkat lunak yang menggunakan prinsip Git dalam manajemen kode perangkat lunak. Selain Github, ada juga perangkat lain seperti Gitlab dan Bitbucket. Pada modul ini kita akan menggunakan Github karena adopsinya yang demikian luas.</p>
+</div>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 30.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/octopus.jpg" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">“Cinematic, Realistic, Ray tracing, Scene from Fantastic Beast movie, Octopus monster attacking town” (StableDiffusion)</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<p>Salah satu fitur Github yang sangat menguntungkan dalam pembuatan halaman web adalah: Github dapat digunakan sebagai sebuah hosting gratis, dengan sebuah alamat domain yang juga gratis (namapengguna.github.io). Pada sub-bab ini kita akan membahas bagaimana membuat sebuah repository Github serta menggunakannya untuk menyimpan beberapa berkas sederhana. Lebih lanjut nanti pada modul ini, kita akan menggunakan Github untuk menyimpan dan mempublikasi aplikasi WebGIS hasil pekerjaan kita.</p>
+<div class="callout callout-style-simple callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Mengapa kita memerlukan Git?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Banyak pertanyaan mungkin muncul ketika Anda mendengar bahwa fungsi dari sebuah Version Control System adalah untuk merekam perubahan pada sebuah dokumen. Bukankah apabila kita menggunakan penyimpanan seperti Google Drive atau Dropbox, fitur yang sama juga dapat kita jumpai?</p>
+<p>Jawaban sederhana untuk pertanyaan tersebut adalah: Git lebih dari sekedar sistem untuk melacak perubahan pada berkas. Pernahkah Anda melakukan editing sebuah dokumen secara bersamaan dengan ratusan atau bahkan ribuan orang sekaligus? Bagaimana Anda memastikan bahwa editing yang dilakukan oleh orang tersebut valid dan layak digunakan pada dokumen Anda? Siapa yang bertanggung-jawab untuk melakukan editing pada bagian tertentu di dokumen Anda?</p>
+<div style="text-align:center;">
+<div id="fig-qgisrepo" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="../images/2022-12-28-16-15-47.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Gambar&nbsp;1. Repository Github <a href="https://qgis.org">QGIS</a></figcaption>
+</figure>
+</div>
+</div>
+<p>Git menyediakan fitur untuk memastikan editing kode dapat dilakukan secara kolaboratif oleh banyak kontributor sekaligus (Lihat contohnya pada repository QGIS di <a href="#fig-qgisrepo">Gambar&nbsp;1</a>). Git memfasilitasi suatu alur <em>version control system</em> yang memastikan kode dapat dibaca dan dirubah oleh banyak orang sekaligus menjamin validitas kode tersebut. Sekali lagi, sebuah aplikasi terdiri dari banyak komponen. Sebuah aplikasi dalam skala menengah saja mungkin memiliki ratusan bahkan ribuan file berbeda. Kita memerlukan sebuah sistem untuk mengatur bagaimana editing dilakukan pada berkas-berkas tersebut sambil memastikan bahwa aplikasi tetap dapat berjalan seperti biasa. Di samping itu, Git juga dilengkapi dengan berbagai fungsi lain untuk <em>project management</em>, seperti <em>issue reporting</em>, <em>milestone</em>, dan lain sebagainya yang memang dikhususkan untuk pembangunan aplikasi.</p>
+</div>
+</div>
+</section>
+<section id="prinsip-dan-cara-kerja-github" class="level2">
+<h2 class="anchored" data-anchor-id="prinsip-dan-cara-kerja-github">Prinsip dan Cara Kerja Github</h2>
+<p>Bagian berikut akan menjelaskan secara naratif tentang bagaimana Github sebagai sebuah <em>Version Control System</em> bekerja untuk merekam perubahan pada kode dan memungkinkan kolaborasi antar developer untuk membangun sebuah perangkat lunak. Anda tidak harus memahami sub-bab ini untuk melanjutkan ke sub-bab berikutnya. Anggaplah bagian ini sebagai rujukan yang dapat Anda buka sewaktu-waktu apabila Anda belum memahami tentang cara kerja Github. Jika mau, Anda dapat langsung melompat ke bagian <a href="#praktek-menggunakan-github">Praktek Menggunakan Github</a> untuk memulai.</p>
+<p>Kita akan gunakan ilustrasi berikut sebagai pengantar:</p>
+<div style="text-align:center;">
+<div id="fig-gitflow1" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="https://miro.medium.com/max/1400/1*E4povWZ5H-K3OaguFQJ0IQ.webp" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Gambar&nbsp;2. Sumber: <a href="https://medium.com/quick-code/top-tutorials-to-learn-git-for-beginners-622289ffdfe5">Medium.com</a></figcaption>
+</figure>
+</div>
+</div>
+<p>Ada 3 bagian utama dari gambar di atas, yaitu:</p>
+<ul>
+<li><strong>Developer A</strong>. Anggap ini adalah Anda dan komputer Anda, tempat Anda mengembangkan aplikasi WebGIS ini</li>
+<li><strong>Remote Repository</strong>. Repository yang tersimpan pada Github (di server Github). Remote repository ini dapat terdiri dari berbagai cabang (<em>branch</em>) yang merupakan rekaman untuk versi dokumen yang berbeda.</li>
+<li><strong>Developer B</strong>. Rekan Anda yang membangun aplikasi WebGIS yang sama pada repository yang sama</li>
+</ul>
+<p>Developer A dan Developer B bekerja pada komputer masing-masing. Remote repository merupakan tempat penyimpanan kode pada server Github yang dapat diakses pada alamat <code>https://github.com/&lt;nama pengguna&gt;/&lt;nama repository&gt;</code>. Gambar di atas menjelaskan beberapa perintah Github yang digunakan selama proses pembangunan aplikasi. Berikut adalah alur kerja Github berdasarkan gambar di atas:</p>
+<ol type="1">
+<li>Anda membuat repository online pada Github. Ini adalah bagian <code>remote repository</code> berwarna abu-abu pada gambar di atas</li>
+<li>Anda melakukan <em><code>cloning</code></em>, yaitu membuat salinan repository tersebut di komputer Anda. Proses cloning ini adalah garis berwarna hijau. Salinan hasil clone yang terdapat di komputer Anda disebut sebagai sebuah <em><code>working copy</code></em>. Perintah yang digunakan untuk melakukan <em>cloning</em> adalah <strong><code>git clone</code></strong>.</li>
+<li>Pada <em><code>working copy</code></em> inilah Anda melakukan perubahan kode: menambah atau menghapus baris, dan seterusnya. Perubahan ini <strong>hanya terjadi di komputer Anda</strong> dan sama sekali belum merubah kode yang tersimpan pada repository Github.</li>
+<li>Untuk merekam perubahan pada kode yang terjadi di komputer Anda, Anda perlu untuk memberi tahu Git pada saat Anda ingin merekam perubahan tersebut. Perekaman ini akan membuat penyimpanan lokal sementara yang disebut dengan nama <em><code>staging area</code></em>. Untuk menambahkan perubahan kode yang Anda lakukan pada <em>staging area</em>, digunakan perintah <strong><code>git add</code></strong>.</li>
+<li>Tahap final sebelum mendorong kode dari komputer Anda ke repository Github adalah membuat sebuah <em><code>commit</code></em>. <em>Commit</em> berisi rekaman tentang apa saja yang berubah sejak <em>commit</em> terakhir Anda buat pada <em>staging area</em>. Dengan demikian, dapat dianggap bahwa sebuah <em>commit</em> adalah titik pemberhentian terakhir rekaman perubahan kode sebelum diunggah pada repository Github. Untuk membuat commit dari <em>staging area</em>, digunakan perintah <strong><code>git commit</code></strong></li>
+<li>Hasil dari <em>Commit</em> adalah sebuah berkas yang berisi seluruh rekaman perubahan yang Anda lakukan pada kode Anda sejak <em>commit</em> sebelumnya dibuat, berikut dengan pesan <em>(commit message)</em> yang Anda tuliskan pada rekaman tersebut. Sekali lagi, hasil commit ini masih ada di komputer Anda dalam bentuk <em>Local Repository</em>. Untuk menunggah <em>Local repository</em> ke Repository Github, digunakan perintah <strong><code>git push</code></strong>.</li>
+<li>Hasil dari <em>Git Push</em> adalah sinkronisasi antara kode yang terdapat pada local repository dan repository pada Github.</li>
+</ol>
+<p>Perlu dicatat bahwa proses no. 1 sampai no. 7 pada <a href="#fig-gitflow1">Gambar&nbsp;2</a> di atas terjadi pada sebuah <em>branch</em> atau cabang dari repository di Github. Pemilik repository nantinya dapat menggabungkan berbagai branch yang berbeda menjadi sebuah repository utama (seringkali disebut sebagai <em><code>main</code></em> atau <em><code>master</code></em>) sebelum merilis aplikasi tersebut. <a href="#fig-gitflow2">Gambar&nbsp;3</a> berikut memberikan ilustrasi proses tersebut:</p>
+<div style="text-align:center;">
+<div id="fig-gitflow2" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="../images/git.drawio.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Gambar&nbsp;3. Penggabungan <em>Branch</em> pada Repository Github</figcaption>
+</figure>
+</div>
+</div>
+<p>Pada contoh di atas, Repository Github ‘WebGIS Geodesi’ dimiliki oleh <strong>Developer C</strong> sebagai Admin, dengan Developer A sebagai salah satu pemilik hak akses. Repository tersebut berada pada alamat <code>https://github.com/developerc/webgisgeodesi</code>. <strong>Developer A</strong> mengunggah <em>update</em> kode yang ditulisnya dari repository lokal ke repository Github ‘WebGIS Geodesi’ pada branch ‘<em>layout</em>’ dengan mengikuti proses sebelumnya (no. 1-7 di atas).</p>
+<p>Developer A kemudian meminta agar bagian kode yang ditulisnya digabungkan dengan kode utama pada repository ‘<em>main</em>’. Permintaan penggabungan kode ini disebut dengan nama <em>Pull Request</em>. Selanjutnya, Developer C sebagai admin memeriksa kode yang ditulis oleh Developer A, kemudian setelah memastikan kesesuaian kode tersebut, Admin menggabungkan <em>pull request</em> tersebut ke Repository Utama di Github menggunakan <strong><code>Git Merge</code></strong>. Skenario penggabungan kode dengan cara semacam ini dapat kita sebut sebagai <strong>Skenario Pertama</strong>.</p>
+<p>Bagaimana jika ada developer lain (misalnya <strong>Developer B</strong>), yang bukan merupakan admin dari repository tersebut namun ingin menyumbangkan kode buatannya? Bagaimana kalau Developer B ingin menambahkan sebuah peta pada halaman WebGIS Geodesi? Developer B tetap dapat melakukan hal-hal tersebut melalui mekanisme yang kita sebut saja sebagai <strong>Skenario Kedua</strong>. Kurang lebih seperti berikut:</p>
+<p>Developer B membuat <em><code>fork</code></em> dari Repository Github ‘WebGIS Geodesi’ ke dalam akun miliknya, sehingga kini Developer B memiliki salinan repository WebGIS Geodesi pada akun githubnya sendiri pada alamat <code>https://github.com/developerb/webgisgeodesi_2</code>. Developer B dapat melakukan proses yang sama seperti Developer A pada repositorynya sendiri (langkah 1-7 di atas) pada branch ‘<em>peta</em>’ kemudian mengajukan sebuah <em>Pull-Request</em> antar-repository, dari Repository Github miliknya ke repository Github milik Developer C. Admin Repository asal kemudian dapat melakukan penggabungan Pull-request (seringkali disingkat sebagai ‘PR’) ke dalam kode utama di repository asal pada branch <em>main</em>.</p>
+<p>Nah, sampai di sini mungkin akan muncul pertanyaan: bagaimana kalau Developer A telah lebih dulu mengajukan Pull-request yang diterima dalam repository asal, dalam keadaan Developer B belum selesai menulis kodenya? Konsekuensi untuk ini adalah kode yang berada di repository Developer B belum mengandung perubahan yang telah dibuat oleh Developer A, sehingga ketika nantinya Developer B membuat PR, kemungkinan akan terjadi ‘bentrok’ karena Developer A maupun Developer B merubah bagian kode yang sama.</p>
+<p>Di sinilah pentingnya bagian kedua dari <a href="#fig-gitflow1">Gambar&nbsp;2</a>: Sebelum Developer B akan mengunggah kodenya dalam bentuk <strong><code>Git Push</code></strong> ke repositorynya sendiri, ia perlu mengunduh update apapun yang terjadi pada repository asal milik Developer C (dalam Github, repository asal ini disebut sebagai <em>upstream</em>). Developer B perlu menggunakan perintah <strong><code>Git Pull</code></strong> untuk keperluan ini. Dengan mengunduh status terakhir dari repository Upstream, Developer B dapat menyelesaikan semua konflik antara kode yang berada di repository lokal komputernya dengan repository <em>upstream</em>. Setelah konflik diselesaikan, barulah kemudian ia mengikuti langkah selanjutnya (<strong>Git Add - Git Commit - Git Push</strong>) ke repositorynya sendiri seperti yang disebutkan di atas. Terakhir, Developer B kemudian mengajukan Pull Request dari repository Github miliknya (disebut sebagai <em>origin</em>) ke repository asal sehingga Developer C dapat menggabungkannya ke kode utama.</p>
+<p>Apa sebenarnya yang ‘direkam’ pada setiap <em>commit</em>?</p>
+<p>Sebuah <em>commit</em> yang dihasilkan dari tiap proses <strong>git add - git commit - git push</strong> akan merekam setiap perubahan yang terjadi pada semua file di repository lokal. Contoh sebuah <em>commit</em> adalah seperti di bawah ini. Warna merah menunjukkan baris yang dihapus, sedangkan warna hijau menunjukkan penambahan baris kode baru. Pada contoh <a href="#fig-commit">Gambar&nbsp;4</a> di bawah terdapat 17 berkas yang dirubah, dengan total penambahan sejumlah 763 baris dan penghapusan kode sejumlah 418 baris.</p>
+<div style="text-align:center;">
+<div id="fig-commit" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="../images/2022-12-30-23-34-36.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Gambar&nbsp;4. Contoh sebuah Commit pada Github</figcaption>
+</figure>
+</div>
+</div>
+<p>Setiap commit memiliki ID yang terdiri dari 40 karakter (<code>42f74812daff3f03798335cc4dd6fee2a9ac2459</code> untuk contoh di atas) yang merekam setiap perubahan pada versi tersebut. Mengapa sebuah Commit begitu penting? Commit ini adalah sebuah <em>checkpoint</em>. Anda dapat kembali ke versi commit manapun yang Anda inginkan dengan memanggil IDnya.</p>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Mengapa begitu rumit?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Terdengar <em>complicated</em>? Langkah-langkah tersebut di atas dirancang untuk memastikan proses penulisan kode hingga rilis aplikasi berjalan dengan lancar meskipun melibatkan rangkaian yang sangat kompleks dengan jumlah developer yang banyak. Faktanya, adanya Git dan khususnya Github selama satu dekade terakhir telah mendorong pertumbuhan perangkat lunak Open Source di seluruh dunia.</p>
+<p>Ingat, Anda tidak harus memahami seluruh narasi di atas untuk melanjutkan pada sub-bab di bawah ini. Anda bisa kembali kapan saja pada sub-bab ini sebagai referensi.</p>
+</div>
+</div>
+</section>
+<section id="menggunakan-github-untuk-version-control-system" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="menggunakan-github-untuk-version-control-system">Menggunakan Github untuk Version Control System</h2>
+<p>Pada bagian ini kita akan mempraktekkan kedua skenario yang disebutkan di atas: membuat sebuah repository pada akun Github kita sendiri dan mempraktekkan skenario kontribusi pada akun Github user lain. Sebelum menggunakan Github, tentu terlebih dahulu kita perlu membuat akun pada website <a href="https://github.com">Github.com</a>. Selain itu, kita juga perlu melakukan instalasi Git pada sistem operasi yang kita gunakan di laptop atau komputer untuk memanggil perintah-perintah Git. Dalam hal ini, kita diuntungkan dengan penggunaan Git, karena Ubuntu WSL yang merupakah sebuah distro Linux telah terintegrasi dengan berbagai utilitas untuk keperluan pembangunan perangkat lunak, termasuk Git.</p>
+<p>Pertama, Anda harus memiliki sebuah akun Github terlebih dahulu. Jika Anda belum memiliki akun Github sebelumnya, buka halaman <a href="https://github.com/signup">https://github.com/signup</a> untuk mendaftarkan akun baru. Masukkan email yang akan dihubungkan dengan akun Github dan ikuti petunjuk pendaftaran (<a href="#fig-signup">Gambar&nbsp;5</a>).</p>
+<div style="text-align:center;">
+<div id="fig-signup" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="../images/2022-12-31-17-26-59.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Gambar&nbsp;5. Mendaftar akun baru pada Github</figcaption>
+</figure>
+</div>
+</div>
+<p>Lakukan pengaturan yang diperlukan untuk akun Github Anda pada halaman <code>https://github.com/settings/profile</code>. Jangan lupa untuk memverifikasi pendaftaran melalui email yang masuk ke akun terdaftar. Anda mungkin tidak dapat menggunakan fitur-fitur Github apabila Anda belum melakukan verifikasi akun.</p>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tentang nama akun Github
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 45.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/2022-12-31-17-18-31.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">“Shakespeare holding a rose, 18th century painting by alphonse mucha, highly detailed, intricate” (Dreamlike Diffusion)</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-panel quarto-layout-cell" style="flex-basis: 55.0%;justify-content: center;">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
+<p><em>‘What’s in a name?’</em> Demikian <a href="https://en.wikipedia.org/wiki/A_rose_by_any_other_name_would_smell_as_sweet">kata Shakespeare</a>. Anda bebas untuk menggunakan nama apapun untuk akun Github Anda. Meskipun demikian, ada baiknya Anda menggunakan nama akun yang cukup ringkas dan mudah dibaca.</p>
+</div>
+</div>
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
+<p>Mengapa demikian? Nama akun Anda akan digunakan untuk membuat sebuah domain oleh Github (<code>namaakun.github.io</code>), sehingga Anda perlu mengikuti beberapa hal mendasar untuk <a href="https://www.dreamhost.com/blog/how-to-choose-the-right-domain-name/">penamaan url</a>, seperti menghindari nama yang terlalu panjang, tidak menggunakan angka dan simbol, dan lain sebagainya. Keep it simple, smarty!</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<section id="bekerja-dengan-repository-github-skenario-1" class="level3 page-columns page-full">
+<h3 class="anchored" data-anchor-id="bekerja-dengan-repository-github-skenario-1">Bekerja dengan Repository Github (Skenario 1)</h3>
+<p>Setelah memiliki akun Github, kita akan mempraktekkan bagaimana membuat sebuah repository dan menambahkan sebuah berkas kode sederhana serta melacak perubahannya. Berikut adalah langkah-langkah yang perlu Anda ikuti:</p>
+<ol type="1">
+<li><p>Pada halaman Github Anda (<code>github.com/namaanda</code>), klik tanda (<code>+</code>) pada ujung kanan atas, kemudian pilih <code>New repository</code> dari opsi yang muncul<br>
+<img src="../images/2022-12-31-17-54-01.png" class="img-fluid"></p></li>
+<li><p>Masukkan nama repository yang ingin Anda buat. Untuk contoh ini, gunakan <code>simple-webgis</code>. Berikan deskripsi yang sesuai dan atur agar repository tersebut bersifat <em>‘public’</em>. <img src="../images/2022-12-31-18-00-02.png" class="img-fluid"></p></li>
+<li><p>Pada bagian pengaturan selanjutnya, tambahkan file <code>Readme</code> dan Atur lisensi <a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> repository. <img src="../images/2022-12-31-18-02-27.png" class="img-fluid"></p></li>
+<li><p>Klik pada tombol <code>Create Repository</code>. Maka Anda akan dibawa pada halaman repository tersebut. Biasanya repository ini memiliki alamat <code>https://github.com/namaanda/namarepository</code>.</p></li>
+</ol>
+<div class="no-row-height column-margin column-container"><li id="fn2"><p><sup>2</sup>&nbsp;Lisensi ini mengatur hak-hak dan kewajiban Anda sebagai pemilik repository serta semua pengguna yang memanfaatkan kode yang Anda publikasi di repository tersebut. Lihat <a href="https://opensource.org/licenses">link berikut</a> untuk membaca lebih lengkap mengenai lisensi Open Source</p></li></div><p>Halaman repository <code>simple-webgis</code> yang baru saja Anda buat mungkin terlihat seperti berikut:</p>
+<div style="text-align:center;">
+<div id="fig-pagerepository" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="../images/2022-12-31-18-11-35.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Gambar&nbsp;6. Halaman repository <code>simple-webgis</code></figcaption>
+</figure>
+</div>
+</div>
+<p>Berikut adalah penjelasan untuk <a href="#fig-pagerepository">Gambar&nbsp;6</a> di atas:</p>
+<ol type="1">
+<li>Alamat URL untuk repository Anda. Apabila Anda mengatur repository ini dengan pengaturan <code>public</code>, maka alamat ini akan dapat diakses oleh siapapun.</li>
+<li>Pengaturan repository. Di menu inilah nantinya Anda akan mengatur mengenai batasan akses, nama repository, maupun menghapus repository jika diperlukan.</li>
+<li>Nama Branch. <em>Branch</em> atau ‘cabang’ digunakan untuk melacak versi repository pada suatu waktu tertentu. Pada contoh di atas, repository ini hanya memiliki satu buah branch, yaitu <code>main</code>. Kita akan membuat branch baru pada latihan berikutnya di sub-bab ini.</li>
+<li>Tombol Kode. Tombol ini digunakan untuk menampilkan menu untuk melakukan <em>cloning</em> pada repository ini.</li>
+<li>Riwayat <em>commit</em>. Bagian ini akan menunjukkan <code>Commit ID</code> terakhir serta kapan commit tersebut dibuat.</li>
+<li>Isi repository. Kode yang Anda tulis akan muncul di sini.</li>
+</ol>
+<p>Sekarang setelah Anda memiliki sebuah repository, kita akan mempraktekkan dua buah kasus seperti berikut:</p>
+<section id="mengatur-repository-pada-satu-branch-utama-main" class="level4">
+<h4 class="anchored" data-anchor-id="mengatur-repository-pada-satu-branch-utama-main">Mengatur repository pada satu branch utama (<code>main</code>)</h4>
+<p>Ikuti langkah-langkah berikut:</p>
+<ol type="1">
+<li><p>Buka konsol WSL Anda. Anda dapat memanggilnya melalui <code>Start Menu</code> dengan mengetikkan ‘Ubuntu’ atau ‘WSL’.</p></li>
+<li><p>Navigasi ke halaman profil Ubuntu Anda menggunakan perintah berikut:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ~</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><img src="../images/2022-12-31-19-00-18.png" class="img-fluid" style="width:80.0%"></p>
+<p>Perintah tersebut akan memindahkan direktori aktif Anda (‘<em>change directory</em>’) ke direktori profil Anda pada WSL.</p></li>
+<li><p>Buat sebuah folder baru dengan nama <code>latihan</code> dan masuklah ke direktori tersebut. Pada shell, ketikkan perintah berikut:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> latihan <span class="kw">&amp;&amp;</span> <span class="bu">cd</span> latihan</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><img src="../images/2022-12-31-19-03-04.png" class="img-fluid"> Saat ini, Anda berada pada folder latihan. Kita akan menggunakan folder ini untuk menempatkan beberapa project yang akan kita buat sepanjang latihan pada modul ini.</p></li>
+<li><p>Kembali ke halaman repository Github Anda. Klik tombol <code>&lt;&gt; Code</code>, kemudian klik tombol Copy (<img src="../images/2022-12-31-19-06-39.png" class="img-fluid">) yang terdapat di samping alamat <em>clone</em> <img src="../images/2022-12-31-19-06-18.png" class="img-fluid"></p></li>
+<li><p>Pada Konsol WSL Anda, ketikkan perintah berikut:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>kemudian ‘<em>paste</em>’ kode yang telah Anda copy dari repository Github sebelumnya (gunakan klik kanan mouse Anda atau <code>ctrl+v</code>). Setelah alamat selesai dicopy, tekan <code>Enter</code>: <img src="../images/2022-12-31-19-10-36.png" class="img-fluid"></p>
+<p>Perintah yang baru saja Anda panggil adalah <code>git clone</code>, yaitu proses untuk <em>mengkloning</em> repository dari Github menjadi sebuah <em>working copy</em> di komputer Anda.<br>
+</p></li>
+<li><p>Setelah perintah selesai, Anda akan mendapatkan sebuah repository lokal. Gunakan perintah <code>ls</code> untuk menampilkan isi dari folder <code>latihan</code> sekarang: <img src="../images/2022-12-31-19-13-15.png" class="img-fluid"> Ingat bahwa Anda juga dapat menampilkan isi dari folder tersebut pada Windows Explorer. Folder tersebut akan terletak di direktori berikut pada Windows: <img src="../images/2022-12-31-19-14-53.png" class="img-fluid"></p></li>
+<li><p>Pindah ke folder <code>simple-webgis</code> hasil cloning, kemudian ketikkan <code>ls</code> untuk melihat isinya: <img src="../images/2022-12-31-19-15-52.png" class="img-fluid"> Perhatikan bahwa isi dari folder tersebut adalah isi yang sama dengan Repository Github yang Anda <em>Cloning</em>.</p></li>
+<li><p>Ketikkan perintah berikut untuk membuka Visual Studio Code (VSCode):</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># jangan lupakan tanda titik setelah 'code'</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ex">code</span> .</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><code>Code</code> merupakan perintah untuk membuka VSCode. Tanda titik setelah ‘code’ menunjukkan direktory yang sedang aktif, sehingga <code>code .</code> berarti, “buka VSCode pada direktori ini”. Perintah di atas akan membuka sebuah jendela VSCode seperti berikut: <img src="../images/2022-12-31-23-57-51.png" class="img-fluid"></p></li>
+</ol>
+<p>Pada jendela VSCode seperti gambar di atas kita dapat melihat isi dari repository <code>simple-webgis</code>. Sekarang kita akan coba menambahkan sebuah berkas baru pada repository tersebut, kemudian mengirimkan pembaruan ini ke repository Github melalui mekanisme <code>Git Push</code>.</p>
+<p>Untuk itu, lakukan langkah-langkah berikut:</p>
+<ol type="1">
+<li><p>Buat sebuah file baru pada working space lokal menggunakan VSCode. Klik kanan pada panel Explorer VSCode, kemudian pilih New File <img src="../images/2023-01-01-00-11-26.png" class="img-fluid"></p></li>
+<li><p>Berikan nama file tersebut <code>index.html</code>. <img src="../images/2023-01-01-00-12-18.png" class="img-fluid"></p></li>
+<li><p>Isikan baris kode berikut pada file <code>index.html</code>. Gunakan copy-paste. Anda tidak harus memahami kode ini sekarang. Kita akan membahas lebih detil mengenai Maplibre pada bab selanjutnya.</p></li>
+</ol>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>index.html</strong></pre>
+</div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource html code-overflow-scroll number-lines code-with-copy"><code class="sourceCode html"><span id="cb5-1"><a href="#cb5-1"></a><span class="dt">&lt;!DOCTYPE </span>html<span class="dt">&gt;</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a><span class="kw">&lt;html&gt;</span></span>
+<span id="cb5-3"><a href="#cb5-3"></a><span class="kw">&lt;head&gt;</span></span>
+<span id="cb5-4"><a href="#cb5-4"></a><span class="kw">&lt;meta</span> <span class="er">charset</span><span class="ot">=</span><span class="st">"utf-8"</span> <span class="kw">/&gt;</span></span>
+<span id="cb5-5"><a href="#cb5-5"></a><span class="kw">&lt;title&gt;</span>Peta dengan Marker<span class="kw">&lt;/title&gt;</span></span>
+<span id="cb5-6"><a href="#cb5-6"></a><span class="kw">&lt;meta</span> <span class="er">name</span><span class="ot">=</span><span class="st">"viewport"</span> <span class="er">content</span><span class="ot">=</span><span class="st">"initial-scale=1,maximum-scale=1,user-scalable=no"</span> <span class="kw">/&gt;</span></span>
+<span id="cb5-7"><a href="#cb5-7"></a><span class="kw">&lt;script</span> <span class="er">src</span><span class="ot">=</span><span class="st">"https://unpkg.com/maplibre-gl@2.4.0/dist/maplibre-gl.js"</span><span class="kw">&gt;&lt;/script&gt;</span></span>
+<span id="cb5-8"><a href="#cb5-8"></a><span class="kw">&lt;link</span> <span class="er">href</span><span class="ot">=</span><span class="st">"https://unpkg.com/maplibre-gl@2.4.0/dist/maplibre-gl.css"</span> <span class="er">rel</span><span class="ot">=</span><span class="st">"stylesheet"</span> <span class="kw">/&gt;</span></span>
+<span id="cb5-9"><a href="#cb5-9"></a><span class="kw">&lt;style&gt;</span></span>
+<span id="cb5-10"><a href="#cb5-10"></a>    body { <span class="kw">margin</span>: <span class="dv">0</span><span class="op">;</span> <span class="kw">padding</span>: <span class="dv">0</span><span class="op">;</span> }</span>
+<span id="cb5-11"><a href="#cb5-11"></a>    <span class="pp">#map</span> { <span class="kw">position</span>: <span class="dv">absolute</span><span class="op">;</span> <span class="kw">top</span>: <span class="dv">0</span><span class="op">;</span> <span class="kw">bottom</span>: <span class="dv">0</span><span class="op">;</span> <span class="kw">width</span>: <span class="dv">100</span><span class="dt">%</span><span class="op">;</span> }</span>
+<span id="cb5-12"><a href="#cb5-12"></a><span class="kw">&lt;/style&gt;</span></span>
+<span id="cb5-13"><a href="#cb5-13"></a><span class="kw">&lt;/head&gt;</span></span>
+<span id="cb5-14"><a href="#cb5-14"></a><span class="kw">&lt;body&gt;</span></span>
+<span id="cb5-15"><a href="#cb5-15"></a><span class="kw">&lt;div</span> <span class="er">id</span><span class="ot">=</span><span class="st">"map"</span><span class="kw">&gt;&lt;/div&gt;</span></span>
+<span id="cb5-16"><a href="#cb5-16"></a></span>
+<span id="cb5-17"><a href="#cb5-17"></a><span class="kw">&lt;script&gt;</span></span>
+<span id="cb5-18"><a href="#cb5-18"></a>    <span class="kw">var</span> map <span class="op">=</span> <span class="kw">new</span> maplibregl<span class="op">.</span><span class="fu">Map</span>({</span>
+<span id="cb5-19"><a href="#cb5-19"></a>        <span class="dt">container</span><span class="op">:</span> <span class="st">'map'</span><span class="op">,</span></span>
+<span id="cb5-20"><a href="#cb5-20"></a>        <span class="dt">style</span><span class="op">:</span> <span class="st">'https://basemaps.cartocdn.com/gl/voyager-gl-style/style.json'</span><span class="op">,</span></span>
+<span id="cb5-21"><a href="#cb5-21"></a>        <span class="dt">center</span><span class="op">:</span> [<span class="fl">112.56513</span><span class="op">,</span> <span class="op">-</span><span class="fl">6.98846</span>]<span class="op">,</span></span>
+<span id="cb5-22"><a href="#cb5-22"></a>        <span class="dt">zoom</span><span class="op">:</span> <span class="dv">8</span></span>
+<span id="cb5-23"><a href="#cb5-23"></a>    })<span class="op">;</span></span>
+<span id="cb5-24"><a href="#cb5-24"></a></span>
+<span id="cb5-25"><a href="#cb5-25"></a>    <span class="kw">var</span> marker <span class="op">=</span> <span class="kw">new</span> maplibregl<span class="op">.</span><span class="fu">Marker</span>()</span>
+<span id="cb5-26"><a href="#cb5-26"></a>        <span class="op">.</span><span class="fu">setLngLat</span>([<span class="fl">112.56513</span><span class="op">,</span> <span class="op">-</span><span class="fl">6.98846</span>])</span>
+<span id="cb5-27"><a href="#cb5-27"></a>        <span class="op">.</span><span class="fu">addTo</span>(map)<span class="op">;</span></span>
+<span id="cb5-28"><a href="#cb5-28"></a><span class="kw">&lt;/script&gt;</span></span>
+<span id="cb5-29"><a href="#cb5-29"></a></span>
+<span id="cb5-30"><a href="#cb5-30"></a><span class="kw">&lt;/body&gt;</span></span>
+<span id="cb5-31"><a href="#cb5-31"></a><span class="kw">&lt;/html&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Jika kita buka file <code>index.html</code> tersebut dengan menggunakan browser, kita akan mendapatkan tampilan seperti berikut:</p>
+<div class="border">
+<p><img src="../images/2023-01-01-06-57-33.png" class="img-fluid"></p>
+</div>
+<p>Pada titik ini, kita telah melakukan modifikasi berkas pada sebuah Working copy dari repository Github <code>simple-webgis</code>. Ingat bahwa kita <strong>belum</strong> merubah sedikitpun kode yang berada pada repository Github (online). Kita akan mengunggah perubahan tersebut dengan empat langkah berikut:</p>
+<ol start="4" type="1">
+<li>PENTING: Sebelum mengunggah apapun ke repository Github, terlebih dahulu kita perlu memeriksa apakah sudah terjadi perubahan di repository tersebut (misalnya karena ada penggabungan Pull Request yang dilakukan oleh developer lain). Untuk itu, gunakan perintah berikut untuk mengambil (‘pull’) perubahan tersebut ke dalam working copy kita jika ada:</li>
+</ol>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> pull</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><img src="../images/2023-01-01-06-25-52.png" class="img-fluid" style="width:80.0%"></p>
+<ol start="5" type="1">
+<li>Selanjutnya, kita akan menambahkan seluruh berkas yang ada di <em>working copy</em> kita ke dalam <em>staging area</em>. Panggil perintah berikut pada shell WSL:</li>
+</ol>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add <span class="at">--all</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Perintah tersebut akan menambahkan semua berkas pada <em>working copy</em> ke dalam <em>staging area</em> dan mencatat semua perubahan yang terjadi pada berkas tersebut sejak commit terakhir pada repository. Tidak ada output yang keluar dari perintah ini. Kita akan melihatnya nanti pada saat melakukan commit.</p>
+<ol start="6" type="1">
+<li>Di bagian inilah kita mencatatkan <em>commit</em> pada kode tersebut. Anggaplah <em>commit</em> sebagai sebuah stempel yang menyatakan bahwa perubahan ini telah mendapatkan persetujuan kita untuk dikirim ke repository Github. Sebuah commit juga disertai dengan pesan (‘<em>message</em>’) yang berguna untuk mengidentifikasi isi dari commit tersebut. Lakukan commit dengan memanggil perintah berikut:</li>
+</ol>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-am</span> <span class="st">"Menambahkan file index.html"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Parameter setelah <code>-am</code> pada kode di atas adalah pesan commit. Pesan commit sangat penting untuk mengidentifikasi apa isi dari commit yang kita buat tersebut. Ingat bahwa suatu saat kita mungkin perlu untuk kembali ke titik commit ini, sehingga pesan commit yang jelas akan memudahkan kita untuk melacak perjalanan perubahan kode yang kita buat.</p>
+<p><img src="../images/2023-01-01-06-41-56.png" class="img-fluid"></p>
+<p>Pada konsol, dapat kita lihat bahwa Git mencatat perubahan pada kode kita serta bagian mana yang berubah. Inilah yang akan kita kirimkan pada repository online pada langkah berikutnya.</p>
+<ol start="7" type="1">
+<li>Terakhir, kita akan ‘mendorong’ <em>commit</em> yang telah kita stempel ini ke dalam repository Github online. Gunakan perintah berikut:</li>
+</ol>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push origin main</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><img src="../images/2023-01-01-06-43-06.png" class="img-fluid"></p>
+<p>Apa itu <code>origin</code> dan apa itu <code>main</code> pada perintah di atas? <code>Origin</code> merujuk pada repository Github yang kita miliki, yaitu untuk contoh ini adalah <code>https://github.com/&lt;namaanda&gt;/simple-webgis</code>. Apabila kita melakukan update untuk berkontribusi pada repository milik orang lain, kita akan menggunakan istilah <code>upstream</code>. Adapun <code>main</code> adalah branch pada repository <code>origin</code> yang kita tuju. Latihan menggunakan branch yang berbeda akan kita lakukan pada bagian <a href="#menggunakan-percabangan-repository">Menggunakan Percabangan Repository</a> di bawah ini.</p>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Seberapa sering kita perlu membuat commit?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Setiap orang memiliki gaya masing-masing dalam melakukan commit: ada yang membuat commit untuk tiap perubahan sekecil apapun. Ada juga yang baru membuat sebuah commit setelah sebagian besar dari codenya selesai dibuat. Tidak ada aturan khusus untuk ini, tetapi gunakan panduan umum berikut: <strong>Jika perubahan tersebut penting, buatlah sebuah commit</strong>. Meskipun hanya satu-dua baris yang Anda rubah, tetapi apabila perubahan tersebut berpotensi untuk mengakibatkan aplikasi mengalami error, maka sebaiknya Anda membuat commit untuk itu.</p>
+</div>
+</div>
+<p>Anggaplah <em>staging area</em> sebagai tempat persinggahan sementara dari update code yang kita buat. Kita dapat meneruskannya menjadi sebuah <em>commit</em>, atau kita juga dapat membatalkannya dan menarik perubahan tersebut dari <em>commit</em>. <a href="#fig-stagingarea">Gambar&nbsp;7</a> menunjukkan ilustrasi untuk proses ini</p>
+<div style="text-align:center;">
+<div id="fig-stagingarea" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="../images/2022-12-11-19-31-48.png" class="img-fluid figure-img" style="width:60.0%"></p>
+<figcaption class="figure-caption">Gambar&nbsp;7. Contoh alur pada staging area (Sumber: <span class="citation" data-cites="NikkiSiapno">@NikkiSiapno</span>)</figcaption>
+</figure>
+</div>
+</div>
+<p>Sekarang, buka repository Github Anda menggunakan browser. Tampilan pada <a href="#fig-updateindex">Gambar&nbsp;8</a> berikut akan menunjukkan bahwa kita telah berhasil melakukan update berkas <code>index.html</code> yang sebelumnya kita buat pada repository lokal di komputer kita:</p>
+<div style="text-align:center;">
+<div id="fig-updateindex" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="../images/2023-01-01-06-51-55.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Gambar&nbsp;8. Tampilan repository setelah git push pertama</figcaption>
+</figure>
+</div>
+</div>
+<p>Seluruh contoh di atas merupakan alur penggunaan Github yang mungkin cukup bagi Anda apabila Anda hanya membutuhkan Github sebagai sistem pelacak perubahan berkas. Boleh jadi Anda tidak memerlukan langkah-langkah penggunaan Github di poin selanjutnya. Akan tetapi, pemahaman mengenai bagaimana Github bekerja di sub-bab berikutnya akan sangat membantu ketika Anda nantinya menggunakan Github untuk berkolaborasi dalam sebuah proyek secara bersama-sama dengan developer lain.</p>
+</section>
+<section id="menggunakan-percabangan-repository" class="level4">
+<h4 class="anchored" data-anchor-id="menggunakan-percabangan-repository">Menggunakan percabangan repository</h4>
+<p>Pada bagian ini kita akan bekerja dengan repository yang sama seperti sebelumnya, yaitu <code>simple-webgis</code>. Perbedaannya adalah bahwa kali ini kita akan menggunakan <em>branch</em> dan membuat PR - <em>Pull Request</em> untuk melacak dan mengatur kode yang kita tulis.</p>
+<p>Lakukan latihan berikut:</p>
+<ol type="1">
+<li>Pada Shell WSL di direktory <code>simple-webgis</code>, ketikkan perintah berikut:</li>
+</ol>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout <span class="at">-b</span> marker-baru</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><img src="../images/2023-01-01-10-41-04.png" class="img-fluid"></p>
+<ol start="2" type="1">
+<li>Perintah sederhana di atas melakukan dua hal sekaligus: membuat sebuah branch baru dan berpindah ke branch tersebut. Kita dapat memeriksa branch yang sedang aktif saat ini dengan menggunakan perintah:</li>
+</ol>
+<div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> branch</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><img src="../images/2023-01-01-11-18-14.png" class="img-fluid"></p>
+<p>Saat ini, terdapat dua buah branch pada repository lokal kita. Kita akan melakukan editing pada file <code>index.html</code> dan menggunakannya untuk melakukan update webGIS kita pada branch <code>marker-baru</code>.</p>
+<ol start="3" type="1">
+<li>Buka file <code>index.html</code> pada VSCode, kemudian tambahkan baris berikut setelah definisi marker pada <a href="#cb5-27">baris ke-27</a>. Kode ini berfungsi untuk menambahkan marker baru pada saat tombol mouse di-klik di atas peta:</li>
+</ol>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>index.html</strong></pre>
+</div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>    <span class="op">...</span>    </span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">// add new marker on click  </span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>    map<span class="op">.</span><span class="fu">on</span>(<span class="st">'click'</span><span class="op">,</span> <span class="kw">function</span>(e) {</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>        <span class="kw">var</span> marker <span class="op">=</span> <span class="kw">new</span> maplibregl<span class="op">.</span><span class="fu">Marker</span>()</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>            <span class="op">.</span><span class="fu">setLngLat</span>(e<span class="op">.</span><span class="at">lngLat</span>)</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>            <span class="op">.</span><span class="fu">addTo</span>(map)<span class="op">;</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>    })<span class="op">;</span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>    <span class="op">...</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout callout-style-simple callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Memeriksa branch yang aktif di VSCode
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Ingat bahwa saat ini kita sedang berada pada branch <code>marker-baru</code>? Kita dapat melihat branch yang sedang aktif melalui VSCode seperti pada gambar berikut: <img src="../images/2023-01-01-12-43-40.png" class="img-fluid"></p>
+</div>
+</div>
+<ol start="4" type="1">
+<li>Selanjutnya, kita akan mengirimkan update tersebut pada repository Github. Gunakan perintah berikut secara berurutan:</li>
+</ol>
+<div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># mengupdate repository lokal dari repository github (branch 'main')</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> pull origin main</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co"># menambahkan semua file ke dalam staging area</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add <span class="at">--all</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="co"># membuat commit baru</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-am</span> <span class="st">"menambah marker dinamis"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><img src="../images/2023-01-01-13-02-02.png" class="img-fluid"></p>
+<p>Pada perintah di atas, kita memberikan tambahan <code>origin main</code> pada perintah <code>git pull</code>. Mengapa demikian? Jawabannya adalah karena saat ini kita sedang berada pada branch <code>marker-baru</code>. Branch ini belum ada di repository Github, karena kita baru saja membuatnya pada komputer lokal kita. Karenanya, kita memeriksa update yang ada pada branch <code>main</code> di repository Github.</p>
+<ol start="5" type="1">
+<li>Langkah selanjutnya, seperti sebelumnya, adalah mengunggah commit ini ke repository Github. Untuk itu kita gunakan perintah berikut:</li>
+</ol>
+<div class="sourceCode" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push origin marker-baru</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><img src="../images/2023-01-01-13-06-00.png" class="img-fluid"></p>
+<p>Perhatikan bahwa kita menggunakan branch <code>marker-baru</code> yang kita update ke repository Github. Pesan commit pada screenshot di atas menunjukkan adanya branch baru (<code>* [new branch]</code>) yang dibuat pada repository Github.</p>
+<ol start="6" type="1">
+<li>Apabila kita mengunjungi halaman repository Github kita, kita akan melihat adanya branch baru tersebut:</li>
+</ol>
+<p><img src="../images/2023-01-01-13-08-45.png" class="img-fluid"></p>
+<ol start="7" type="1">
+<li>Pada halaman repository Github, kita juga dapat melihat pesan pemberitahuan bahwa kita baru saja melakukan commit pada sebuah branch, dan tombol untuk membuat sebuah Pull Request seperti berikut:</li>
+</ol>
+<p><img src="../images/2023-01-01-13-09-53.png" class="img-fluid"></p>
+<ol start="8" type="1">
+<li>Klik pada tombol <code>Compare &amp; Pull Request</code> tersebut. Halaman untuk membuat sebuah Pull Request baru akan muncul seperti berikut: <img src="../images/2023-01-01-13-12-14.png" class="img-fluid"></li>
+</ol>
+<p>Pada halaman ini, perhatikan bagian berikut: <img src="../images/2023-01-01-13-12-51.png" class="img-fluid"></p>
+<p>Ingat penjelasan mengenai <code>merge</code> pada <a href="#fig-gitflow2">Gambar&nbsp;3</a>? Kita ingin menggabungkan (<em>pull-request</em>) update yang kita lakukan pada branch <code>marker-baru</code> ke branch <code>main</code>. Isi dari kedua branch ini sebenarnya sama (kita pastikan dengan menggunakan <code>git pull origin main</code> tadi), kecuali penambahan yang kita lakukan pada bagian marker. Arah panah pada gambar di atas mengindikasikan arah merging yang ingin kita lakukan. Tanda hijau <img src="../images/2023-01-01-13-18-39.png" class="img-fluid"> menunjukkan bahwa tidak ada konflik yang terjadi apabila kedua branch tersebut disatukan.</p>
+<ol start="9" type="1">
+<li>Klik pada tombol <code>Create Pull Request</code>. Maka kita akan dibawa pada halaman untuk melakukan penggabungan (<em>merge</em>): <img src="../images/2023-01-01-13-20-02.png" class="img-fluid"></li>
+</ol>
+<p>Klik tombol <code>Merge Pull Request</code>, kemudian <code>Confirm Merge</code>. Maka tambahan kode dari branch <code>marker-baru</code> akan digabungkan dengan kode yang sebelumnya ada di branch <code>main</code>.</p>
+<ol start="10" type="1">
+<li>Setelah merging berhasil, kita akan mendapatkan pesan bahwa <em>Pull Request</em> (PR) tersebut telah selesai digabungkan dan telah ditutup: <img src="../images/2023-01-01-13-22-07.png" class="img-fluid"></li>
+</ol>
+<p>Kita dapat menghapus branch <code>marker-baru</code> apabila kita tidak memerlukannya lagi. Untuk saat ini, biarkan saja branch tersebut.</p>
+<ol start="11" type="1">
+<li>Kita dapat melihat isi dari commit terbaru kita pada halaman utama untuk memastikan bahwa tambahan kode yang kita buat telah digabungkan oleh Github.</li>
+</ol>
+<p><img src="../images/2023-01-01-13-25-21.png" class="img-fluid"></p>
+<p>Klik pada ID commit seperti pada gambar. Tampilan detil dari commit tersebut akan muncul:</p>
+<p><img src="../images/2023-01-01-13-26-27.png" class="img-fluid"></p>
+<p>Sekali lagi, ingat bahwa sebuah commit adalah titik <em>checkpoint</em>. Kita dapat kembali lagi pada kondisi commit ini apabila kelak kita mengalami masalah atau bug dengan kode. Untuk itu, commit sangat berperan mengatur bagaimana status aplikasi yang kita kembangkan.</p>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Fungsi dari branching
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Mengapa perlu menggunakan branch? Bukankah kita juga dapat melakukan hal yang sama cukup dengan bekerja pada sebuah branch main branch saja?</p>
+<p>Branch dapat kita gunakan, misalnya, pada saat kita melakukan eksperimen pada aplikasi yang sedang kita kembangkan. Sebagai contoh, kita dapat menggunakan branch untuk melacak tiap fitur baru. Kita dapat menggabungkan branch tersebut pada branch rilis (misalnya branch <code>main</code>) hanya ketika kita telah benar-benar yakin bahwa fitur yang kita kembangkan pada branch tersebut siap untuk diproduksi. Branch juga memungkinkan banyak developer berkontribusi bersama-sama pada sebuah aplikasi dengan mengembangkan fitur untuk masing-masing branch. Penjelasan lebih detil terkait dengan <em>branching</em> dapat dilihat pada <a href="https://www.atlassian.com/git/tutorials/using-branches">link berikut</a>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://www.nobledesktop.com/image/gitresources/git-branches-merge.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Sumber: <a href="https://www.nobledesktop.com/image/gitresources/git-branches-merge.png">Nobledekstop</a></figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-important no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Latihan Mandiri 1
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Untuk latihan pertama ini, lakukan modifikasi pada file README.MD dengan menambahkan beberapa deskripsi singkat tentang halaman web tersebut. Gunakan cara manapun yang menurut Anda sesuai (menggunakan branch baru atau langsung pada branch <code>main</code>)</p>
+</div>
+</div>
+</section>
+</section>
+<section id="berkontribusi-pada-repository-lain-skenario-2" class="level3">
+<h3 class="anchored" data-anchor-id="berkontribusi-pada-repository-lain-skenario-2">Berkontribusi pada Repository Lain (Skenario 2)</h3>
+<p>Metode branching seperti pada kasus di atas memerlukan akses sebagai owner atau administrator dari repository tersebut. Dengan demikian, tidak semua orang dapat melakukan branching pada sebuah repository yang bukan miliknya. Namun bagaimana dengan perangkat lunak Open Source yang memungkinkan semua orang untuk dapat berkontribusi? Apakah setiap kontributor harus menjadi admin terlebih dahulu?</p>
+<p>Jawabannya tentu tidak harus. Sebagai contoh, perhatikan halaman <em>Pull Request</em> pada <a href="https://github.com/qgis/QGIS/pulls">Repository Github QGIS berikut</a>:</p>
+<div style="text-align:center;">
+<div id="fig-qgispr" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="../images/2023-01-01-13-53-17.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Gambar&nbsp;9. Halaman PR Repository QGIS</figcaption>
+</figure>
+</div>
+</div>
+<p>Nama-nama yang ditandai berwarna merah pada <a href="#fig-qgispr">Gambar&nbsp;9</a> di atas adalah para pembuat PR untuk menambahkan fitur baru atau menyelesaikan bug pada QGIS. Sekarang bandingkan nama-nama tersebut dengan <a href="https://github.com/orgs/qgis/people">para member</a> yang memiliki akses admin pada repository QGIS. Perhatikan bahwa tidak semua pull-request tersebut dibuat oleh para pengguna github pada daftar member tersebut.</p>
+<p>Lantas bagaimana kita dapat berkontribusi pada perangkat lunak Open Source seperti QGIS ini tanpa menjadi seorang admin di repository tersebut? Kita dapat menggunakan metode <em>forking</em> yang akan kita praktekkan di sub-bab berikut. Metode <em>forking</em> memungkinkan semua orang untuk turut berkontribusi dan menyumbangkan ide atau fitur baru pada QGIS. Meskipun demikian, tidak semua permintaan PR (Pull Request) akan digabungkan begitu saja pada repository utama QGIS. Ingat bahwa hanya admin yang dapat melakukan <em>merging</em>. Dengan demikian, tiap Pull-request yang dibuat oleh para kontributor akan dievaluasi dan diuji oleh para admin sebelum resmi digabungkan pada branch rilis QGIS. Hal ini membuat manajemen rilis dan pengembangan fitur dapat berjalan secara lebih terkontrol serta terarah tanpa kehilangan esensi dari pengembangan perangkat lunak yang bersifat bebas dan terbuka.</p>
+<section id="melakukan-forking" class="level4">
+<h4 class="anchored" data-anchor-id="melakukan-forking">Melakukan ‘Forking’</h4>
+<p>Pada latihan berikut, kita akan membuat skenario kontribusi pada sebuah repository yang berada pada alamat <code>https://github.com/danylaksono/latihan-webgis</code>. Anda diminta untuk menambahkan titik pada daftar marker yang berada pada file <code>index.html</code> di repository tersebut. Ikuti langkah-langkah berikut:</p>
+<ol type="1">
+<li><p>Buka halaman <code>https://github.com/danylaksono/latihan-webgis</code>, kemudian klik tombol <code>Fork</code> pada bagian kanan atas halaman <img src="../images/2023-01-01-17-25-21.png" class="img-fluid"></p></li>
+<li><p>Akan muncul halaman untuk membuat sebuah fork baru. Klik pada tombol <code>Create Fork</code> untuk membuat <em>fork</em> repository ini pada akun Anda. Pada contoh ini digunakan akun <code>ppids-ugm</code>. <img src="../images/2023-01-01-17-26-48.png" class="img-fluid"></p></li>
+<li><p>Akan muncul repository baru pada halaman Anda yang merupakan salinan dari repository <code>github.danylaksono/latihan-webgis</code>. <img src="../images/2023-01-01-17-28-05.png" class="img-fluid"></p></li>
+<li><p>Buka Konsol WSL Anda dan pindahkan direktori aktif ke folder <code>latihan</code>. <img src="../images/2023-01-01-17-31-35.png" class="img-fluid"></p></li>
+<li><p>Lakukan <em>cloning</em> repository <code>latihan-webgis</code> pada Github Anda sebagaimana pada langkah sebelumnya. Perhatikan bahwa Anda melakukan <em>cloning</em> dari repository Github Anda sendiri (<code>github.com/namaanda</code>), bukan repository yang terletak pada <code>github.com/danylaksono</code>. Perintah untuk melakukan cloning adalah seperti berikut (sesuaikan username dengan akun Anda):</p></li>
+</ol>
+<div class="sourceCode" id="cb15"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/<span class="op">&lt;</span>namaakunanda<span class="op">&gt;</span>/latihan-webgis</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><img src="../images/2023-01-01-17-36-23.png" class="img-fluid"></p>
+<ol start="6" type="1">
+<li>Pindahlah ke folder <code>latihan-webgis</code>. Buka VSCode pada folder ini.</li>
+</ol>
+<div class="sourceCode" id="cb16"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Pindah ke folder latihan-webgis</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> latihan-webgis</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="co"># jangan lupakan tanda titik setelah code</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="ex">code</span> .</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><img src="../images/2023-01-01-17-37-31.png" class="img-fluid"></p>
+<p>Sampai tahap ini, Anda juga dapat membuat sebuah branch baru dan melacak perubahan yang terjadi seperti pada latihan di contoh sebelumnya. Repository hasil fork yang Anda buat adalah <strong>milik Anda</strong>. Anda bebas untuk memodifikasi, membuat branch baru, menambahkan admin, dan seterusnya, tanpa merubah apapun pada repository asal.</p>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Upstream dan Origin
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Sebagai catatan, mulai saat ini kita akan sebut repository Github <code>latihan-webgis</code> milik Anda sebagai repository <code>origin</code>, sedangkan repository <code>latihan-webgis</code> pada <code>github.com/danylaksono</code> sebagai repository <code>upstream</code>. Kita akan melihat penggunaannya setelah ini.</p>
+</div>
+</div>
+<p>Setelah memiliki sebuah repository lokal dan repository Github (origin), kita akan melakukan modifikasi pada kode ini untuk mensimulasikan skenario kontribusi perangkat lunak <em>open source</em>.</p>
+<ol type="1">
+<li><p>Pada VSCode working copy untuk repository <code>latihan-webgis</code>, buka berkas <code>index.html</code>: <img src="../images/2023-01-01-17-50-05.png" class="img-fluid"></p></li>
+<li><p>Pada bagian <em>script</em> di dokumen HTML tersebut, Anda akan menemukan baris deklarasi variabel <code>markers</code> seperti berikut:</p></li>
+</ol>
+<div class="sourceCode" id="cb17"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>      <span class="co">// Daftar Titik. Anda bisa menambahkan marker baru di sini</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>      <span class="kw">var</span> markers <span class="op">=</span> [</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>          {</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>              <span class="st">"lat"</span><span class="op">:</span> <span class="op">-</span><span class="fl">6.954619</span><span class="op">,</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>              <span class="st">"lng"</span><span class="op">:</span> <span class="fl">112.49871</span><span class="op">,</span>  </span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>              <span class="st">"keterangan"</span><span class="op">:</span> <span class="st">"MIM 03 Doudo"</span> </span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>          }<span class="op">,</span></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>          {</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>              <span class="st">"lat"</span><span class="op">:</span> <span class="op">-</span><span class="fl">6.98846</span><span class="op">,</span></span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>              <span class="st">"lng"</span><span class="op">:</span> <span class="fl">112.56513</span><span class="op">,</span> </span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>              <span class="st">"keterangan"</span><span class="op">:</span> <span class="st">"SMP N 1 Sidayu"</span> </span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>          }<span class="op">,</span>  </span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>          {</span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>              <span class="st">"lat"</span><span class="op">:</span> <span class="op">-</span><span class="fl">7.16812</span><span class="op">,</span></span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a>              <span class="st">"lng"</span><span class="op">:</span> <span class="fl">112.65273</span><span class="op">,</span> </span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a>              <span class="st">"keterangan"</span><span class="op">:</span> <span class="st">"SMAN 1 Gresik"</span></span>
+<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a>          }<span class="op">,</span></span>
+<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a>      ]<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="3" type="1">
+<li>Lakukan editing pada daftar marker tersebut. Tambahkan sebuah titik marker lagi pada variabel tersebut sehingga menjadi seperti berikut:</li>
+</ol>
+<div class="sourceCode" id="cb18"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>      <span class="co">// Daftar Titik. Anda bisa menambahkan marker baru di sini</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>      <span class="kw">var</span> markers <span class="op">=</span> [</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>          {</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>              <span class="st">"lat"</span><span class="op">:</span> <span class="op">-</span><span class="fl">6.954619</span><span class="op">,</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>              <span class="st">"lng"</span><span class="op">:</span> <span class="fl">112.49871</span><span class="op">,</span>  </span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>              <span class="st">"keterangan"</span><span class="op">:</span> <span class="st">"MIM 03 Doudo"</span> </span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>          }<span class="op">,</span></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>          {</span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>              <span class="st">"lat"</span><span class="op">:</span> <span class="op">-</span><span class="fl">6.98846</span><span class="op">,</span></span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>              <span class="st">"lng"</span><span class="op">:</span> <span class="fl">112.56513</span><span class="op">,</span> </span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>              <span class="st">"keterangan"</span><span class="op">:</span> <span class="st">"SMP N 1 Sidayu"</span> </span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>          }<span class="op">,</span>  </span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>          {</span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>              <span class="st">"lat"</span><span class="op">:</span> <span class="op">-</span><span class="fl">7.16812</span><span class="op">,</span></span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a>              <span class="st">"lng"</span><span class="op">:</span> <span class="fl">112.65273</span><span class="op">,</span> </span>
+<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a>              <span class="st">"keterangan"</span><span class="op">:</span> <span class="st">"SMAN 1 Gresik"</span></span>
+<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a>          }<span class="op">,</span></span>
+<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a>          <span class="co">// tambahan titik baru. Sesuaikan dengan koordinat dan keterangan Anda sendiri</span></span>
+<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a>          {</span>
+<span id="cb18-20"><a href="#cb18-20" aria-hidden="true" tabindex="-1"></a>              <span class="st">"lat"</span><span class="op">:</span> <span class="op">-</span><span class="fl">7.76374</span><span class="op">,</span></span>
+<span id="cb18-21"><a href="#cb18-21" aria-hidden="true" tabindex="-1"></a>              <span class="st">"lng"</span><span class="op">:</span> <span class="fl">110.372936</span><span class="op">,</span> </span>
+<span id="cb18-22"><a href="#cb18-22" aria-hidden="true" tabindex="-1"></a>              <span class="st">"keterangan"</span><span class="op">:</span> <span class="st">"Teknik Geodesi UGM"</span></span>
+<span id="cb18-23"><a href="#cb18-23" aria-hidden="true" tabindex="-1"></a>          }<span class="op">,</span></span>
+<span id="cb18-24"><a href="#cb18-24" aria-hidden="true" tabindex="-1"></a>      ]<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="4" type="1">
+<li>Buat sebuah <em>commit</em> dan lakukan <em>push</em> untuk perubahan ini pada repository Github <code>latihan-webgis</code> Anda. Jika Anda lupa, perintah yang digunakan adalah sebagai berikut :</li>
+</ol>
+<div class="sourceCode" id="cb19"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># memastikan update dari repository origin</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> pull origin main</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="co"># menambahkan semua file ke dalam staging area</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add <span class="at">--all</span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="co"># membuat commit</span></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-am</span> <span class="st">"menambahkan satu marker"</span></span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a><span class="co"># melakukan push commit ke repository origin</span></span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push origin main</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><img src="../images/2023-01-01-19-34-29.png" class="img-fluid"></p>
+<p>Pastikan bahwa Anda melakukan <em>push</em> pada repository yang sesuai, yaitu repository dengan nama akun Anda.</p>
+<p>Dengan demikian, Anda telah berhasil melakukan forking dan membuat replika dari repository <code>github.com/danylaksono/latihan-webgis</code> dan memodifikasi kodenya untuk keperluan Anda sendiri. Anda dapat mendistribusikan repository ini sebagai hasil kerja Anda (tentunya dengan memperhatikan lisensi pada repository awal). Namun, bagaimana kalau Anda ingin menyumbangkan kode Anda pada repository <code>github.com/danylaksono/latihan-webgis</code>? Bagian berikutnya akan membahas mengenai hal ini.</p>
+</section>
+<section id="membuat-pull-request-antar-fork" class="level4">
+<h4 class="anchored" data-anchor-id="membuat-pull-request-antar-fork">Membuat Pull-Request Antar Fork</h4>
+<p>Skenario kita pada bagian ini adalah bahwa Anda ingin berkontribusi pada repository <em>Upstream</em> (<code>github.com/danylaksono/latihan-webgis</code>) sesuai dengan kode yang telah Anda buat pada repository Anda sendiri.</p>
+<p>Untuk itu, lakukan latihan berikut:</p>
+<p>Sebelum melanjutkan latihan, terlebih dahulu kita akan membahas mengenai apa itu <code>remote</code> pada sebuah repository Github. <code>Remote</code> adalah alamat repository Github yang digunakan sebagai acuan pada saat melakukan <code>pull</code> dan <code>push</code>. Dengan kata lain, <code>remote</code> merupakan penguhubung antara repository lokal di komputer kita dengan repository Github yang menjadi sumber kode tersebut.</p>
+<ol type="1">
+<li>Pada konsol WSL, pastikan bahwa kita berada pada direktory <code>latihan-webgis</code> yang telah kita clone sebelumnya. Ketikkan perintah berikut:</li>
+</ol>
+<div class="sourceCode" id="cb20"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> remote <span class="at">-v</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><img src="../images/2023-01-01-19-56-18.png" class="img-fluid"></p>
+<p>Pada gambar di atas, <code>origin</code> merupakan nama dari <code>remote</code> tersebut, sedangkan <code>https://github.com/ppids-ugm/latihan-webgis</code> adalah alamat remote. Perhatikan bahwa remote inilah yang digunakan pada saat kita melakukan operasi <code>git push origin main</code>, sesuai dengan indikator di akhir alamat tersebut yang menunjukkan hak untuk melakukan <code>fetch</code> atau <code>push</code>.</p>
+<p>Gambar di bawah ini merupakan modifikasi dari <a href="#fig-gitflow2">Gambar&nbsp;3</a> untuk menunjukkan bagian-bagian repository Origin dan Upstream. Sekarang kita tahu bahwa kita dapat melakukan <code>git pull</code> dan <code>git push</code> apda repository origin, karena kita memiliki alamat remote yang terdaftar pada repository tersebut.</p>
+<div id="fig-upstreamorigin" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="../images/upstreamorigin.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Gambar&nbsp;10. Ilustrasi Upstream dan Origin</figcaption>
+</figure>
+</div>
+<p>Bagaimana kita dapat melakukan hal yang sama untuk repository asal, agar kita dapat melakukan pengecekan (misalnya dengan <code>git pull</code>) sebelum menambahkan kode baru?</p>
+<p>Ikuti langkah-langkah berikut:</p>
+<ol type="1">
+<li>Terlebih dahulu, kita perlu menambahkan alamat <em>remote</em> baru pada repository lokal kita, yaitu alamat remote <code>upstream</code>. Gunakan perintah berikut pada shell WSL:</li>
+</ol>
+<div class="sourceCode" id="cb21"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> remote add upstream https://github.com/danylaksono/latihan-webgis.git</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="2" type="1">
+<li>Ulangi perintah berikut untuk melihat daftar alamat <code>remote</code>:</li>
+</ol>
+<div class="sourceCode" id="cb22"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> remote <span class="at">-v</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><img src="../images/2023-01-01-20-50-39.png" class="img-fluid"></p>
+<p>Saat ini kita telah memiliki dua buah alamat remote: <code>origin</code> dan <code>upstream</code>. Meskipun demikian, kita tidak dapat melakukan <code>git push upstream main</code>, mengingat kita tidak memiliki otorisasi untuk melakukan demikian kecuali kita merupakan admin untuk repository <code>danylaksono/latihan-webgis</code>. Lantas mengapa kita menambahkan alamat <code>upstream</code> ini? Bayangkan apabila repository upstream tersebut mengalami perubahan, misalnya, penambahan kode oleh developer lain. Kita dapat menggunakan remote upstream untuk memastikan bahwa kode pada repository kita memiliki kondisi yang sama dengan repository origin. Untuk itu, kita perlu melakukan <code>git pull</code> pada repository upstream untuk menjamin agar tidak terjadi konflik dari kode yang kita unggah untuk Pull request nantinya.</p>
+<ol start="3" type="1">
+<li>Lakukan pembaruan (<code>git pull</code>) dari repository upstream dengan menggunakan perintah berikut:</li>
+</ol>
+<div class="sourceCode" id="cb23"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> pull upstream main</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><img src="../images/2023-01-01-20-57-12.png" class="img-fluid"> Perintah di atas bermakna: “Lakukan <code>git pull</code> pada branch main di repository <code>upstream</code>”.</p>
+<ol start="4" type="1">
+<li>Buat modifikasi pada file yang berada di repository kita, misalnya dengan menambahkan titik lain pada file <code>index.html</code> seperti berikut:</li>
+</ol>
+<div class="sourceCode" id="cb24"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> markers <span class="op">=</span> [</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>          {</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>              <span class="st">"lat"</span><span class="op">:</span> <span class="op">-</span><span class="fl">6.954619</span><span class="op">,</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>              <span class="st">"lng"</span><span class="op">:</span> <span class="fl">112.49871</span><span class="op">,</span>  </span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>              <span class="st">"keterangan"</span><span class="op">:</span> <span class="st">"MIM 03 Doudo"</span> </span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>          }<span class="op">,</span></span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>          {</span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>              <span class="st">"lat"</span><span class="op">:</span> <span class="op">-</span><span class="fl">6.98846</span><span class="op">,</span></span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>              <span class="st">"lng"</span><span class="op">:</span> <span class="fl">112.56513</span><span class="op">,</span> </span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>              <span class="st">"keterangan"</span><span class="op">:</span> <span class="st">"SMP N 1 Sidayu"</span> </span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>          }<span class="op">,</span>  </span>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>          {</span>
+<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a>              <span class="st">"lat"</span><span class="op">:</span> <span class="op">-</span><span class="fl">7.16812</span><span class="op">,</span></span>
+<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a>              <span class="st">"lng"</span><span class="op">:</span> <span class="fl">112.65273</span><span class="op">,</span> </span>
+<span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a>              <span class="st">"keterangan"</span><span class="op">:</span> <span class="st">"SMAN 1 Gresik"</span></span>
+<span id="cb24-16"><a href="#cb24-16" aria-hidden="true" tabindex="-1"></a>          }<span class="op">,</span></span>
+<span id="cb24-17"><a href="#cb24-17" aria-hidden="true" tabindex="-1"></a>          <span class="co">// tambahan titik baru. Sesuaikan dengan koordinat dan keterangan Anda sendiri</span></span>
+<span id="cb24-18"><a href="#cb24-18" aria-hidden="true" tabindex="-1"></a>          {</span>
+<span id="cb24-19"><a href="#cb24-19" aria-hidden="true" tabindex="-1"></a>              <span class="st">"lat"</span><span class="op">:</span> <span class="op">-</span><span class="fl">7.76374</span><span class="op">,</span></span>
+<span id="cb24-20"><a href="#cb24-20" aria-hidden="true" tabindex="-1"></a>              <span class="st">"lng"</span><span class="op">:</span> <span class="fl">110.372936</span><span class="op">,</span> </span>
+<span id="cb24-21"><a href="#cb24-21" aria-hidden="true" tabindex="-1"></a>              <span class="st">"keterangan"</span><span class="op">:</span> <span class="st">"Teknik Geodesi UGM"</span></span>
+<span id="cb24-22"><a href="#cb24-22" aria-hidden="true" tabindex="-1"></a>          }<span class="op">,</span></span>
+<span id="cb24-23"><a href="#cb24-23" aria-hidden="true" tabindex="-1"></a>          {</span>
+<span id="cb24-24"><a href="#cb24-24" aria-hidden="true" tabindex="-1"></a>              <span class="st">"lat"</span><span class="op">:</span> <span class="op">-</span><span class="fl">7.495063</span><span class="op">,</span></span>
+<span id="cb24-25"><a href="#cb24-25" aria-hidden="true" tabindex="-1"></a>              <span class="st">"lng"</span><span class="op">:</span> <span class="fl">110.381643</span><span class="op">,</span>  </span>
+<span id="cb24-26"><a href="#cb24-26" aria-hidden="true" tabindex="-1"></a>              <span class="st">"keterangan"</span><span class="op">:</span> <span class="st">"Bukit Ketep"</span></span>
+<span id="cb24-27"><a href="#cb24-27" aria-hidden="true" tabindex="-1"></a>          }<span class="op">,</span></span>
+<span id="cb24-28"><a href="#cb24-28" aria-hidden="true" tabindex="-1"></a>      ]<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="5" type="1">
+<li>Unggah modifikasi ini dengan menggunakan <code>git push</code> <strong>pada repository Anda</strong> (origin):</li>
+</ol>
+<div class="sourceCode" id="cb25"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add <span class="at">--all</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-am</span> <span class="st">"menambahkan titik baru"</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push origin main</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><img src="../images/2023-01-01-21-02-28.png" class="img-fluid"></p>
+<p>Sekali lagi perhatikan bahwa kita melakukan update pada repository Github origin yang kita miliki.</p>
+<ol start="6" type="1">
+<li><p>Kita akan membuat sebuah Pull Request pada repository <em>Upstream</em>. Prosedurnya hampir sama seperti sebelumnya. Buka halaman <code>https://github.com/danylaksono/latihan-webgis</code>, kemudian klik menu <code>Pull Request</code>: <img src="../images/2023-01-01-21-04-54.png" class="img-fluid"></p></li>
+<li><p>Pada halaman Pull Requests, klik pada tombol <code>New pull request</code>: <img src="../images/2023-01-01-21-05-36.png" class="img-fluid"></p></li>
+<li><p>Klik pada tulisan <code>Compare accross forks</code> <img src="../images/2023-01-01-21-06-49.png" class="img-fluid"></p></li>
+<li><p>Pilih branch dan repository asal: <em>namaanda/latihan-webgis (main)</em> serta branch dan repository tujuan: <em>danylaksono/latihan-webgis (main)</em> <img src="../images/2023-01-01-21-07-28.png" class="img-fluid"></p></li>
+</ol>
+<p>Setelahnya Anda akan dapat melihat perubahan dari repository Anda yang ingin digabungkan dengan repository <code>danylaksono/latihan-webgis</code>. Klik pada tombol <img src="../images/2023-01-01-21-10-06.png" class="img-fluid"> untuk mengajukan permohonan penggabungan tersebut.</p>
+<ol start="10" type="1">
+<li><p>Pastikan bahwa <em>merging</em> dapat dilakukan tanpa konflik. Isikan Judul PR dan keterangan, kemudian klik <code>Create Pull Request</code> <img src="../images/2023-01-01-21-11-20.png" class="img-fluid"></p></li>
+<li><p><em>Pull request</em> telah berhasil dibuat. <img src="../images/2023-01-01-21-12-08.png" class="img-fluid"></p></li>
+</ol>
+<p>Sekarang, apabila Anda memeriksa kode pada <code>danylaksono/latihan-webgis</code>, apakah Anda akan melihat kode yang Anda usulkan? Belum tentu. Admin dari repository <code>danylaksono/latihan-webgis</code> akan memeriksa PR yang Anda buat serta memastikan tidak ada kesalahan yang muncul sebagai akibat dari penggabungan tersebut. Apabila admin merasa bahwa kode yang Anda tulis cukup baik dan memenuhi syarat, maka Admin akan menerima pull-request tersebut (bagian ini hanya dapat dilakukan oleh admin): <img src="../images/2023-01-01-21-14-44.png" class="img-fluid"></p>
+<p>Setelahnya, barulah Anda akan dapat melihat kode Anda telah digabungkan pada repository <code>danylaksono/latihan-webgis</code>: <img src="../images/2023-01-01-21-16-05.png" class="img-fluid"></p>
+<p>Selamat! Anda telah menyelesaikan latihan tentang Github. Hasil <em>Pull Request</em> yang Anda buat pada latihan ini akan diperiksa oleh Admin dan digabungkan ke dalam kode utama. Apabila Pull request Anda diterima oleh admin, Anda akan dapat melihat updatenya secara otomatis pada alamat berikut: <a href="https://danylaksono.com/latihan-webgis">https://danylaksono.com/latihan-webgis</a> <img src="../images/2023-01-01-21-20-06.png" class="img-fluid"></p>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Dari kode menjadi website
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Bagaimana mungkin kode tersebut dapat langsung dipublikasi secara otomatis menjadi sebuah website? Sub-bab selanjutnya akan membahas mengenai hal ini.</p>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="publikasi-halaman-web-pada-github" class="level2">
+<h2 class="anchored" data-anchor-id="publikasi-halaman-web-pada-github">Publikasi Halaman Web pada Github</h2>
+<p>Github menyediakan layanan domain dan hosting gratis untuk sebuah website <em>static</em> yang disebut dengan nama <a href="https://pages.github.com/">Github Pages</a>. Ini berarti jika Anda menyimpan berkas-berkas website statik (sebuah file <code>index.html</code> seperti contoh di atas, misalnya) maka repository tempat Anda menyimpan berkas tersebut dapat Anda publikasikan menjadi sebuah halaman yang dapat diakses dari internet.</p>
+<p>Setiap pengguna Github akan mendapatkan sebuah domain gratis: <code>https://&lt;namapengguna&gt;.github.io</code>. Domain ini mengambil berkas dari repository yang memiliki nama <code>&lt;namapengguna&gt;.github.io</code>. Ini berarti, apabila Anda membuat sebuah repository dengan nama tersebut dan menempatkan sebuah file <code>index.html</code> di dalamnya, maka isi dari file <code>index.html</code> ini akan dapat diakses dari alamat <code>https://&lt;namapengguna&gt;.github.io</code>. Selain itu, <strong>seluruh repository lain pada akun Github tersebut</strong> juga dapat diakses sebagai sebuah <em>path</em>. Sebagai contoh, repository dengan nama <code>latihan-webgis</code> akan dapat diakses dari alamat <code>https://&lt;namapengguna&gt;.github.io/latihan-webgis</code>. Menarik, bukan?</p>
+<section id="publikasi-halaman-utama" class="level4">
+<h4 class="anchored" data-anchor-id="publikasi-halaman-utama">Publikasi halaman utama</h4>
+<p>Kita akan mulai dengan mempraktekkan bagaimana mengaktifkan domain <code>&lt;namapengguna&gt;.github.io</code> pada akun Anda. Ikuti langkah berikut:</p>
+<ol type="1">
+<li>Buat sebuah repository baru. Repository ini <strong>harus</strong> memiliki nama <code>&lt;namapengguna&gt;.github.io</code> (lihat contoh di bawah). Apabila terdapat perbedaan antara nama pengguna dan bagian awal dari nama repository ini, maka website tersebut tidak akan dapat diakses dan domain ini tidak dapat digunakan. <img src="../images/2023-01-01-23-56-18.png" class="img-fluid"></li>
+</ol>
+<p>Bagaimana kalau Anda ingin menggunakan nama domain lain, misalnya <namakucing>.github.io? Jawabannya adalah Anda tidak dapat melakukannya. Jika Anda gunakan nama yang berbeda untuk repository ini, meskipun dengan akhiran <code>.github.io</code>, maka domain tersebut tidak akan dapat diakses. Github hanya memberikan satu buah domain yang sesuai dengan nama pengguna Anda. Inilah mengapa pemilihan nama pengguna Github di awal cukup penting. Nama ini sekaligus juga sebagai sebuah alamat domain.</namakucing></p>
+<p>Apabila Anda tetap ingin menggunakan nama domain yang berbeda dengan nama pengguna Anda, maka Anda dapat membuat sebuah <em>organization</em> dengan nama yang Anda pilih. Sebuah <em>organization</em> dapat memiliki satu nama domain (misalnya seperti <code>ppids-ugm.github.io</code>) di atas. Anda dapat membuat beberapa organisasi sekaligus, meskipun mungkin Anda perlu meluangkan waktu ekstra untuk mengatur organisasi yang berbeda.</p>
+<ol start="2" type="1">
+<li><p>Seperti sebelumnya, tambahkan file README pada repository ini. Pilih lisensi, kemudian klik pada <code>Create Repository</code>. <img src="../images/2023-01-02-00-06-11.png" class="img-fluid"></p></li>
+<li><p>Setelah halaman repository selesai dibuat, lakukan cloning pada repository ini di folder <code>latihan</code>. Berikut adalah contoh perintah untuk melakukan hal tersebut: <img src="../images/2023-01-02-00-08-51.png" class="img-fluid"></p></li>
+<li><p>Masuk pada direktori hasil cloning (<code>&lt;namapengguna&gt;.github.io</code>). Buka VSCode pada direktori ini. Selanjutnya, tambahkan sebuah file baru pada repository ini dengan nama <code>index.html</code>. <img src="../images/2023-01-02-00-10-15.png" class="img-fluid"></p></li>
+<li><p>Isikan baris kode berikut pada file <code>index.html</code>:</p></li>
+</ol>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>index.html</strong></pre>
+</div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode numberSource html code-overflow-scroll number-lines code-with-copy"><code class="sourceCode html"><span id="cb26-1"><a href="#cb26-1"></a><span class="kw">&lt;html&gt;</span></span>
+<span id="cb26-2"><a href="#cb26-2"></a>  <span class="kw">&lt;head&gt;</span></span>
+<span id="cb26-3"><a href="#cb26-3"></a>    <span class="kw">&lt;title&gt;</span>Landing Page<span class="kw">&lt;/title&gt;</span></span>
+<span id="cb26-4"><a href="#cb26-4"></a>    <span class="kw">&lt;style&gt;</span></span>
+<span id="cb26-5"><a href="#cb26-5"></a>      body {</span>
+<span id="cb26-6"><a href="#cb26-6"></a>        <span class="kw">background-image</span>: <span class="fu">radial-gradient(</span><span class="dv">circle</span> at <span class="dv">center</span><span class="op">,</span> <span class="fu">rgba(</span><span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="fu">)</span> <span class="dv">0</span><span class="dt">%</span><span class="op">,</span> <span class="fu">rgba(</span><span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">0.5</span><span class="fu">)</span> <span class="dv">100</span><span class="dt">%</span><span class="fu">)</span><span class="op">,</span> <span class="fu">url(</span><span class="st">'https://images.pexels.com/photos/460621/pexels-photo-460621.jpeg'</span><span class="fu">)</span><span class="op">;</span></span>
+<span id="cb26-7"><a href="#cb26-7"></a>        <span class="kw">background-attachment</span>: <span class="dv">fixed</span><span class="op">;</span></span>
+<span id="cb26-8"><a href="#cb26-8"></a>        <span class="kw">background-position</span>: <span class="dv">center</span><span class="op">;</span></span>
+<span id="cb26-9"><a href="#cb26-9"></a>        <span class="kw">background-repeat</span>: <span class="dv">no-repeat</span><span class="op">;</span></span>
+<span id="cb26-10"><a href="#cb26-10"></a>        <span class="kw">background-size</span>: <span class="dv">cover</span><span class="op">;</span></span>
+<span id="cb26-11"><a href="#cb26-11"></a>      }</span>
+<span id="cb26-12"><a href="#cb26-12"></a>      <span class="fu">.container</span> {</span>
+<span id="cb26-13"><a href="#cb26-13"></a>        <span class="kw">display</span>: <span class="dv">flex</span><span class="op">;</span></span>
+<span id="cb26-14"><a href="#cb26-14"></a>        <span class="kw">flex-direction</span>: <span class="dv">column</span><span class="op">;</span></span>
+<span id="cb26-15"><a href="#cb26-15"></a>        <span class="kw">align-items</span>: <span class="dv">center</span><span class="op">;</span></span>
+<span id="cb26-16"><a href="#cb26-16"></a>        <span class="kw">justify-content</span>: <span class="dv">center</span><span class="op">;</span></span>
+<span id="cb26-17"><a href="#cb26-17"></a>        <span class="kw">height</span>: <span class="dv">100</span><span class="dt">%</span><span class="op">;</span></span>
+<span id="cb26-18"><a href="#cb26-18"></a>      }</span>
+<span id="cb26-19"><a href="#cb26-19"></a>      <span class="fu">.title</span> {</span>
+<span id="cb26-20"><a href="#cb26-20"></a>        <span class="kw">text-align</span>: <span class="dv">center</span><span class="op">;</span></span>
+<span id="cb26-21"><a href="#cb26-21"></a>        <span class="kw">font-size</span>: <span class="dv">48</span><span class="dt">px</span><span class="op">;</span></span>
+<span id="cb26-22"><a href="#cb26-22"></a>        <span class="kw">font-weight</span>: <span class="dv">bold</span><span class="op">;</span></span>
+<span id="cb26-23"><a href="#cb26-23"></a>        <span class="kw">color</span>: <span class="cn">white</span><span class="op">;</span></span>
+<span id="cb26-24"><a href="#cb26-24"></a>        <span class="kw">text-shadow</span>: <span class="dv">2</span><span class="dt">px</span> <span class="dv">2</span><span class="dt">px</span> <span class="dv">20</span><span class="dt">px</span> <span class="cn">#000000</span><span class="op">;</span></span>
+<span id="cb26-25"><a href="#cb26-25"></a>      }</span>
+<span id="cb26-26"><a href="#cb26-26"></a>      <span class="fu">.subtitle</span> {</span>
+<span id="cb26-27"><a href="#cb26-27"></a>        <span class="kw">text-align</span>: <span class="dv">center</span><span class="op">;</span></span>
+<span id="cb26-28"><a href="#cb26-28"></a>        <span class="kw">font-size</span>: <span class="dv">24</span><span class="dt">px</span><span class="op">;</span></span>
+<span id="cb26-29"><a href="#cb26-29"></a>        <span class="kw">color</span>: <span class="cn">white</span><span class="op">;</span></span>
+<span id="cb26-30"><a href="#cb26-30"></a>        <span class="kw">text-shadow</span>: <span class="dv">2</span><span class="dt">px</span> <span class="dv">2</span><span class="dt">px</span> <span class="dv">4</span><span class="dt">px</span> <span class="cn">#000000</span><span class="op">;</span></span>
+<span id="cb26-31"><a href="#cb26-31"></a>      }</span>
+<span id="cb26-32"><a href="#cb26-32"></a>    <span class="kw">&lt;/style&gt;</span></span>
+<span id="cb26-33"><a href="#cb26-33"></a>  <span class="kw">&lt;/head&gt;</span></span>
+<span id="cb26-34"><a href="#cb26-34"></a>  <span class="kw">&lt;body&gt;</span></span>
+<span id="cb26-35"><a href="#cb26-35"></a>    <span class="kw">&lt;div</span> <span class="er">class</span><span class="ot">=</span><span class="st">"container"</span><span class="kw">&gt;</span></span>
+<span id="cb26-36"><a href="#cb26-36"></a>      <span class="kw">&lt;div</span> <span class="er">class</span><span class="ot">=</span><span class="st">"title"</span><span class="kw">&gt;</span>Github Pages Landing<span class="kw">&lt;/div&gt;</span></span>
+<span id="cb26-37"><a href="#cb26-37"></a>      <span class="kw">&lt;div</span> <span class="er">class</span><span class="ot">=</span><span class="st">"subtitle"</span><span class="kw">&gt;</span>Thank you for visiting<span class="kw">&lt;/div&gt;</span></span>
+<span id="cb26-38"><a href="#cb26-38"></a>    <span class="kw">&lt;/div&gt;</span></span>
+<span id="cb26-39"><a href="#cb26-39"></a>  <span class="kw">&lt;/body&gt;</span></span>
+<span id="cb26-40"><a href="#cb26-40"></a><span class="kw">&lt;/html&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="6" type="1">
+<li><p>Simpan file tersebut dan lakukan push ke repository Github: <img src="../images/2023-01-02-00-16-26.png" class="img-fluid"></p></li>
+<li><p>Buka alamat <code>https://&lt;namapengguna&gt;.github.io</code> di browser Anda: <img src="../images/2023-01-02-00-18-00.png" class="img-fluid"></p></li>
+</ol>
+<p>Selamat! Anda telah berhasil mempublikasikan sebuah website. Sub-bab berikutnya akan membahas lebih jauh fitur dari Github Pages.</p>
+</section>
+<section id="publikasi-repository-sebagai-path" class="level4">
+<h4 class="anchored" data-anchor-id="publikasi-repository-sebagai-path">Publikasi repository sebagai path</h4>
+<p>Kita sekarang memiliki sebuah domain, dan kita dapat mempublikasikan sebuah website statik pada alamat tersebut. Tetapi bagaimana jika kita ingin mempublikasi repository lain pada akun Github kita? Kalau Anda masih ingat, sebelumnya kita juga menggunakan repository <code>latihan-webgis</code> untuk menyimpan sebuah peta yang menampilkan beberapa marker. Pada bagian ini, kita akan mempublikasikan repository ini sebagai sebuah website pada <code>path</code>, misalnya pada <code>https://&lt;namapengguna&gt;.github.io/latihan-webgis</code>.</p>
+<ol type="1">
+<li><p>Buka halaman repository <code>latihan-webgis</code> Anda. Misalnya pada https://github.com/<namapengguna>/latihan-webgis: <img src="../images/2023-01-02-00-24-15.png" class="img-fluid"></namapengguna></p></li>
+<li><p>Buka pengaturan menggunakan tombol <code>Settings</code>. <img src="../images/2023-01-02-00-24-53.png" class="img-fluid"></p></li>
+<li><p>Pada halaman <em>Settings</em>, klik menu <code>Pages</code> <img src="../images/2023-01-02-00-26-43.png" class="img-fluid"></p></li>
+<li><p>Pada Halaman <em>Github Pages</em>, pilih branch yang akan dipublikasi. Pada repository <code>latihan-webgis</code>, kita hanya memiliki satu buah branch yaitu <code>main</code>. Pilih branch tersebut, kemudian klik <code>Save</code>. <img src="../images/2023-01-02-00-29-16.png" class="img-fluid"></p></li>
+<li><p>Tunggu beberapa saat sampai repository tersebut dipublikasi. Anda akan melihat pemberitahuan <code>your site is live at  https://&lt;namapengguna&gt;.github.io/latihan-webgis/</code> ketika proses selesai. <img src="../images/2023-01-02-00-33-03.png" class="img-fluid"></p></li>
+<li><p>Kunjungi halaman tersebut pada browser: <img src="../images/2023-01-02-00-34-34.png" class="img-fluid"></p></li>
+</ol>
+<div class="callout callout-style-default callout-important no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Latihan Mandiri 2
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Untuk latihan kedua, coba publikasikan repository <code>simple-webgis</code> yang Anda buat pada awal latihan di bab ini. Praktekkan untuk melakukan modifikasi kode, melakukan <code>pull</code>, membuat <code>commit</code> serta melakukan <code>push</code> kode ke domain Anda. Buat sedemikian rupa sehingga peta pada repository <code>simple-webgis</code> ini dapat diakses melalui <code>https://&lt;namapengguna&gt;.github.io/simple-webgis</code>.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="kesimpulan" class="level2">
+<h2 class="anchored" data-anchor-id="kesimpulan">Kesimpulan</h2>
+<p>Dengan ini, Anda telah menyelesaikan latihan dan mempraktekkan penggunaan Github sebagai salah satu sistem untuk Version Control System. Anda telah memahami bagaimana alur kontribusi masing-masing developer pada pembangunan sebuah aplikasi <em>open source</em>, serta mempraktekkan bagaimana Github dapat digunakan untuk mempublikasi sebuah website statis dengan menggunakan Github Pages. Masih banyak fitur Github yang tidak disebutkan di latihan singkat ini. Akan tetapi, Anda dapat menggali dari banyak latihan yang tersedia di internet.</p>
+<p>Tujuan lain dari materi Github pada awal modul ini adalah agar Anda memiliki sebuah tempat untuk mempublikasikan portofolio pekerjaan Anda. Lakukan praktek pembangunan aplikasi sederhana dan unggah ke Github sehingga Anda memiliki dokumentasi yang baik akan skill pembangunan aplikasi sekaligus manajemen perangkat lunak dan developer yang mengembangkan aplikasi.</p>
+<p>Di bab selanjutnya Anda akan bertemu dengan pembangunan aplikasi menggunakan NodeJS dan khususnya NextJS. Pastikan Anda telah memahami sebagian besar materi di bab ini terlebih dahulu. Apabila Anda ragu atau lupa, jadikan halaman ini sebagai rujukan sehingga Anda tetap dapat kembali pada bagian yang diperlukan.</p>
+
+
+</section>
+
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../1_persiapan/instalasi-perangkat.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Instalasi Perangkat</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../about.html" class="pagination-link">
+        <span class="nav-page-text">Penutup</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

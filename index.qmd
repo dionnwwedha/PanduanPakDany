@@ -1,0 +1,166 @@
+---
+title: "Panduan Praktis Membangun WebGIS"
+subtitle: "Membangun WebGIS dengan NextJS dan Maplibre"
+toc: true
+# description: | 
+  # Panduan Praktis Membangun WebGIS dengan NextJS dan Maplibre.
+date: 11/12/2022
+author:
+  - name: Dany Laksono 
+    url: https://danylaksono.com/panduan-webgis
+    affiliation: GIIG Research Group, Departemen Teknik Geodesi UGM
+    affiliation-url: https://geodesi.ugm.ac.id
+citation:
+  url: https://github.com/danylaksono/panduan-nextwebgis
+# bibliography: biblio.bib
+---
+
+## Tentang Modul Ini 
+
+
+::: {layout="[[50,25], [100]]"}
+
+Modul singkat ini berisi panduan langkah-demi-langkah untuk membangun sebuah WebGIS: Aplikasi sistem informasi geospasial yang dapat diakses melalui media internet. Tentunya tidak semua konten geospasial yang diakses melalui media internet dapat kita sebut sebagai sebuah 'WebGIS' (lihat penjelasan singkat tentang ini di bab berikutnya). Selain itu, terdapat berbagai ragam bentuk dan jenis perangkat lunak yang dapat digunakan untuk membangun sebuah WebGIS. Pun demikian, tiap orang mungkin memiliki pemahaman yang berbeda mengenai apa dan bagaimana sebuah webGIS harus dibangun. Demikian luas cakupan istilah 'WebGIS' yang berkembang saat ini, sehingga kita dapat temukan padanannya dalam hampir segala bentuk sesuatu yang kita sebut sebagai '[Internet](https://www.gislounge.com/difference-web-gis-internet-gis/)' itu sendiri. 
+
+![“A surveyor with total station in early days of America overseeing the land in the style of Monet” (DALL-E)](images/surveyor.png)
+
+Untuk itu, modul ini hanya akan menyajikan _seiris_ panduan mengenai bagaimana membangun sebuah WebGIS. Modul ini akan memberikan panduan yang sangat _opinionated_ dari sudut pandang penulis. Selain itu, modul ini juga hanya akan berfokus pada *bagaimana* membangun sebuah WebGIS. Anda tidak akan menjumpai banyak pembahasan teoritis di sini. Fokus dari modul ini adalah _to get you started developing a webgis_. Akan ada petunjuk di sana dan di sini tentang di mana Anda dapat menemukan pembahasan lebih lengkap tentang teori dari latihan yang dimaksud. Lihat pada sub-bab **Bagaimana menggunakan modul ini?** di bawah.
+
+:::
+
+
+
+## Prasyarat
+
+Tidak ada prasyarat khusus untuk dapat mengikuti semua materi pada modul ini. Anda dapat langsung terjun mengikuti langkah-langkah yang terdapat pada modul ini satu-persatu sampai Anda dapat membangun WebGIS sendiri. Meskipun demikian, pengetahuan akan beberapa poin berikut diperlukan untuk membantu Anda dalam memahami apa sebenarnya yang terjadi di sana:
+
+- _Dasar-dasar tentang elemen-elemen HTML dan Document Object Model (DOM) pada sebuah halaman web_
+
+  Pengetahuan tentang hal ini akan membantu ketika Anda menggunakan React nantinya. Elemen-elemen pada React mengacu pada elemen-elemen HTML, sehingga sedikit banyak Anda perlu memahami hal tersebut sebelum menggunakannya.  
+
+- _Jenis dan maksud dari _syntax_ bahasa CSS (Cascading Style Sheets)_
+  
+  Kita akan menggunakan Tailwind, sebuah framework yang digunakan untuk membangun Style berdasarkan syntax CSS. Pada saat menggunakan Tailwind, Anda akan terbantu dengan mengenali maksud dari syntax yang kita gunakan.
+
+- _Prinsip-prinsip bahasa pemrograman, khususnya menggunakan Javascript_
+
+  Barangkali tidak ada web modern yang tidak menggunakan Javascript. Kita akan menggunakan beberapa library Javascript seperti React dan NextJS, serta menggunakan mesin Javascript (NodeJS) untuk membangun webGIS nantinya. Library peta (WebMap) yang kita gunakan, MaplibreJS, juga merupakan salah satu framework berbasis Javascript.
+  
+- _Dasar-dasar Version Control System, khususnya Git dan Github_
+  
+  Sepanjang berbagai latihan pada modul ini, kita akan menggunakan Github untuk menyimpan kode yang kita buat, melakukan _versioning_, serta mempublikasikan hasil pekerjaan kita. Untuk itu, pengetahuan dasar tentang Git dan Github akan sangat membantu. Meskipun demikian, sedikit teori mengenai cara kerja Version Control System dan khususnya Git akan diberikan di bab selanjutnya sebagai pengantar. 
+
+- _Pengetahuan mengenai WebMap Library dan Slippy Map secara umum_
+  Data spasial dengan segala ke'spesial'annya, memerlukan penanganan khusus ketika disajikan melalui internet. Library WebMap dibangun dari Javascript untuk memudahkan data dan informasi ini ditampilkan di sebuah halaman web. Pemahaman mengenai Slippy map (bagaimana data geospasial disusun untuk ditampilkan di internet) akan menjadi modal yang berguna pada saat melaksanakan latihan-latihan ini.
+
+
+::: {.callout-tip appearance="simple"}
+
+## Jangan Takut Memulai!
+
+
+::: {layout="[[50,25]]"}
+
+Jangan khawatir jika Anda merasa poin-poin di atas terdengar sangat asing. Dengan mengikuti langkah demi langkah, Anda akan menemukan konteks dari beberapa istilah tersebut pada modul ini. Kerjakan lebih dulu latihan yang diberikan, kemudian kembangkan perlahan. Bukankah belajar menyelam jadi mustahil jika Anda tidak berani sama sekali menyentuh air? 😁
+
+![](https://media3.giphy.com/media/12XDYvMJNcmLgQ/giphy.gif)
+:::
+
+:::
+
+
+## Garis Besar Materi
+
+Setelah menyelesaikan modul ini, Anda akan dapat membuat sebuah WebGIS yang kurang lebih terlihat seperti berikut: [https://next-webgis.vercel.app/](https://next-webgis.vercel.app/).
+
+Kita akan membangun dari dasar sebuah WebGIS yang menampilkan peta dasar (basemap) dan data geospasial lain dalam bentuk vector tiles. Berikut adalah garis besar dari apa yang akan kita pelajari:
+
+1. Menyiapkan lingkungan development
+2. Menggunakan Github untuk Version Control System 
+2. Membangun Web dengan NextJS
+3. Mengatur antarmuka Web dengan Tailwind
+4. Menggunakan MaplibreJS
+5. Mengatur dan menggunakan vector tiles
+
+Karena bersifat ringkas, sangat mungkin apabila banyak terdapat materi yang diperlukan namun tidak tercakup pada modul ini. Untuk itu, pembaca disarankan untuk menggali secara mandiri dari sumber-sumber lain. Kontak penulis tertera pada bagian lain panduan ini apabila diperlukan diskusi lebih lanjut mengenai materi di dalam maupun di luar cakupan modul ini.
+
+## Bagaimana menggunakan modul ini?
+
+Tentunya, cara tiap individu untuk belajar hal baru berbeda-beda. Gunakan pendekatan manapun yang menurut Anda paling sesuai (_ runtut, atau skimming, atau skipping_..). Salah satu cara belajar yang dapat Anda gunakan adalah seperti berikut:
+
+```{mermaid}
+%%| fig-width: 6.5
+flowchart LR
+A((Execute)) --> B((Break))
+B --> C((Reflect))
+C --> A
+```
+
+Penjelasannya adalah sebagai berikut:
+
+- **EXECUTE**
+
+  Baca dan ikuti semua langkah-langkah yang ada pada tutorial tersebut. Kerjakan sedetil mungkin. Jangan khawatir apabila Anda merasa belum paham pada beberapa langkah. Lanjutkan saja, tetapi berikan batasan: entah berdasarkan waktu (misalnya, 20 menit) atau berdasarkan tahap tertentu pada tutorial tersebut, kemudian lanjutkan lagi ke tahap BREAK di bawah ini.
+
+  Pada satu titik, mungkin Anda merasa telah mengikuti seluruh panduan yang ada dengan benar, namun Anda tetap tidak dapat melanjutkannya karena menjumpai _error_. Pada titik ini, lanjutkan ke tahap BREAK.
+
+- **BREAK**
+
+  Break di sini lebih tepat jika tidak diterjemahkan dengan 'beristirahat', akan tetapi 'rusak'. Pada titik dimana Anda berhenti meng-eksekusi tutorial (baik karena error ataupun berhasil sampai pada titik tertentu), rubahlah bagian-bagian kode yang telah Anda ikuti dengan baik ini. 
+
+  Jika Anda berhenti meng-eksekusi karena _error_, inilah saat untuk melakukan debugging. Cari tahu apa yang menyebabkan program tersebut mengalami error. Luangkan waktu sebanyak mungkin 
+
+  Jika Anda berhenti meng-eksekusi setelah sampai pada tahap atau batasan waktu tertentu, luangkan waktu (misalnya 10 menit) untuk merubah kode yang telah membuat Anda sampai pada titik tersebut. Ganti beberapa parameter, misalnya, atau lakukan perubahan pada urutan kode, atau lainnya. Dengan demikian, Anda benar-benar akan paham apa yang terjadi pada kode Anda tersebut.
+
+  Pastikan bahwa Anda memiliki salinan dari kode sebelum Anda melakukan modifikasi. _Version Control System_ (VCS) yang akan kita bahas di bab berikutnya dapat digunakan untuk keperluan ini. 
+
+- **REFLECT**
+ 
+  Investigasi: apa yang berubah setelah kode dimodifikasi? Tahap ini adalah tahap _enrichment_: Anda dapat melakukan browsing untuk mencari tahu lebih jauh, misalnya, tentang bagian kode tertentu yang terdapat pada tutorial yang sudah Anda ikuti. Anda juga dapat mencari variasi dari algoritma atau penjelasan teori yang lebih mendalam. 
+  
+  Sekali lagi, batasi waktu untuk eksplorasi, dan setelah selesai, kembali pada point 'EXECUTE' dan teruskan tutorial yang Anda ikuti sampai selesai.
+
+:::{.callout-tip appearance="simple"}
+
+## Sedikit tips untuk mengatur waktu
+
+Aplikasi seperti Pomodoro (misalnya, [https://pomofocus.io/](https://pomofocus.io/)) dapat membantu Anda untuk mengatur waktu sambil tetap memperhatikan kapan kita mampu untuk tetap fokus. Karena terbatasnya _Attention Span_ kita, tetap luangkan waktu untuk beristirahat sejenak diantara siklus di atas. 
+
+Ada banyak varian dari metode Pomodoro ini, misalnya seperti [ForestApp](https://www.forestapp.cc/).
+:::
+
+Tentu, ini hanya salah satu pendekatan saja. Gunakan zona belajar yang menurut Anda paling nyaman, dan rutinkan hal tersebut. Selamat belajar!
+
+![Cara terbaik untuk belajar adalah belajar dari kesalahan](/images/break-stuff.jpg)
+
+
+## Selanjutnya Apa?
+
+:::{layout="[[30,70]]"}
+
+!["Tutorial hell with the style of Persistence of Memory by Dali" (StableDiffusion)](/images/tutorial-hell.jpg)
+
+:::{layout-ncol="1"}
+Jangan terjebak pada "Tutorial Hell"! 
+
+Setelah Anda menyelesaikan satu tutorial, fokuslah untuk banyak-banyak berlatih dan menghasilkan produk ketimbang terus-menerus mengikuti berbagai tutorial yang sama. Cobalah untuk membangun sendiri sebuah produk yang Anda inginkan. Rancang, Kerjakan, dan Publikasikan!
+
+Memiliki satu proyek kecil tiap minggu ('_Weekend Projects_') akan sangat membantu. Tidak harus sebuah proyek besar. Cukup bagian kecil dari tutorial yang Anda ikuti, misalnya. Kata-kata '_Practice Makes Perfect_' mungkin terdengar klasik, _but it works_. 
+::: 
+
+:::
+
+## Tentang Ilustrasi
+
+Ilustasi pada modul ini dibuat menggunakan AI: [Midjourney](https://midjourney.com/), [Stable Diffusion](https://stablediffusionweb.com/), [Dreamlike Diffusion](https://dreamlike.art/create) dan [Dall-E](https://labs.openai.com/). Caption pada gambar-gambar ilustrasi tersebut merupakan prompt yang diberikan pada model AI untuk menghasilkan gambar-gambar ini.
+
+
+## Lisensi 
+
+Modul ini berada di bawah lisensi [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). 
+
+
+
+
+
+
